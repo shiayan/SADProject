@@ -1158,6 +1158,7 @@ textarea::-webkit-input-placeholder {
 
 .input-mini {
   width: 60px;
+  font-family:Tahoma;
 }
 
 .input-small {

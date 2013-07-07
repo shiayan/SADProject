@@ -456,40 +456,7 @@
       });
    </script>
       
-    <script>
-        // begin first table
-        $('#order_view').dataTable({
-            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ رکورد در صفحه",
-                "oPaginate": {
-                    "sPrevious": "قبلی",
-                    "sNext": "بعدی"
-                }
-            },
-            "aoColumnDefs": [{
-                'bSortable': true,
-                'aTargets': [0]
-            }]
-        });
-
-        // jQuery('#sample_1 .group-checkable').change(function () {
-        // var set = jQuery(this).attr("data-set");
-        // var checked = jQuery(this).is(":checked");
-        // jQuery(set).each(function () {
-        // if (checked) {
-        // $(this).attr("checked", true);
-        // } else {
-        // $(this).attr("checked", false);
-        // }
-        // });
-        // jQuery.uniform.update(set);
-        // });
-
-        jQuery('#order_view_wrapper .dataTables_filter input').addClass("input-medium"); // modify table search input
-        jQuery('#order_view_wrapper .dataTables_length select').addClass("input-mini"); // modify table per page dropdown
-    </script>
+   
 </body>
 <!-- END BODY -->
 </html>

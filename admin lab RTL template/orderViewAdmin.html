@@ -11,7 +11,6 @@
    <meta content="" name="author" />
    <link href="assets/bootstrap-rtl/css/bootstrap-rtl.min.css" rel="stylesheet" />
    <link href="assets/bootstrap-rtl/css/bootstrap-responsive-rtl.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/styles/jquery.ui.datepicker1.8-all.css" />
    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
    <link href="css/style.css" rel="stylesheet" />
    <link href="css/style_responsive.css" rel="stylesheet" />
@@ -355,7 +354,7 @@
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
                   <h3 class="page-title">
                     
-                     سفارشات تایید شده
+                     ریزسفارش
                   </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -379,7 +378,7 @@
                     <!-- BEGIN EXAMPLE TABLE widget-->
                     <div class="widget">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i>سفارشات تایید شده</h4>
+                            <h4><i class="icon-reorder"></i>ریزسفارش شماره‌ی ۱۶</h4>
                             <span class="tools">
                                 
                             </span>
@@ -389,85 +388,42 @@
                        
                           
 
-                        <div class="widget-body">
-                            
-
-
-							<label>
-							 تاریخ شروع : <input id="startDate"  size="16" type="text"  /></label>
-                            <label>
-							 تاریخ پایان :&nbsp;&nbsp; <input id="endDate" size="16" type="text"  /></label>
-                             <label>
-                                 <button class="btn btn-inverse"><i class="icon-refresh icon-white"></i>نمایش</button>
-                             </label>
-                            </div>
+                       
                    
                         <div class="widget-body">
-                            <table class="table table-striped table-bordered" id="accepted_orders">
+                            <table class="table table-striped table-bordered" id="order_view">
                             <thead>
                                 <tr>
                                     <th>شماره</th>
-                                    <th class="hidden-phone">کاربر</th>
-                                    <th class="hidden-phone">تاریخ</th>
-                                    <th class="hidden-phone"></th>
+                                    <th class="hidden-phone">اسم</th>
+                                    <th class="hidden-phone">مقدار</th>
+                                    <th class="hidden-phone">توضیح</th>
+                                    <th class="hidden-phone">وضعیت</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                 <tr class="odd gradeX">
+                                    <td>112</td>
+                                    <td class="hidden-phone">ماوس</td>
+                                    <td class="center hidden-phone">15</td>
+                                   <td class="hidden-phone">ماوس لپتاپ درجه یک</td>
+                                     <td> <span class="label">بررسی نشده</span></td>
+                                </tr>
                                 <tr class="odd gradeX">
                                     <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
+                                    <td class="hidden-phone">ماوس</td>
+                                    <td class="center hidden-phone">15</td>
+                                   <td class="hidden-phone">ماوس لپتاپ درجه یک</td>
+                                     <td> <span class="label label-info">در حال خرید</span></td>
                                 </tr>
                                  <tr class="odd gradeX">
                                     <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
+                                    <td class="hidden-phone">ماوس</td>
+                                    <td class="center hidden-phone">15</td>
+                                   <td class="hidden-phone">ماوس لپتاپ درجه یک</td>
+                                     <td> <span class="label label-success">موجود در انبار</span></td>
                                 </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">ali</td>
-                                    <td class="center hidden-phone">12 Jan 2012</td>
-                                    <td class="hidden-phone"><a href="orderForBuyAgent.html" class="btn mini green-stripe">مشاهده</a></td>
-                                </tr>
-                                 
+                                
                              </tbody>
                         </table>
                         </div>
@@ -506,8 +462,7 @@
    <script type="text/javascript" src="assets/uniform/jquery.uniform.min.js"></script>
    <script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
    <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
-     <script type="text/javascript" src="assets/bootstrap-datepicker/js/jquery.ui.datepicker-cc.all.min.js"></script>
-   <script src="js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
   
    <script>
       jQuery(document).ready(function() {       
@@ -515,47 +470,8 @@
          App.init();
       });
    </script>
-      <script>
-          $(function () {
-             
-              $('#startDate').datepicker();
-              $('#endDate').datepicker();
-          });
-</script>
-    <script>
-        // begin first table
-        $('#accepted_orders').dataTable({
-            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ رکورد در صفحه",
-                "oPaginate": {
-                    "sPrevious": "قبلی",
-                    "sNext": "بعدی"
-                }
-            },
-            "aoColumnDefs": [{
-                'bSortable': true,
-                'aTargets': [0]
-            }]
-        });
-
-        // jQuery('#sample_1 .group-checkable').change(function () {
-        // var set = jQuery(this).attr("data-set");
-        // var checked = jQuery(this).is(":checked");
-        // jQuery(set).each(function () {
-        // if (checked) {
-        // $(this).attr("checked", true);
-        // } else {
-        // $(this).attr("checked", false);
-        // }
-        // });
-        // jQuery.uniform.update(set);
-        // });
-
-        jQuery('#accepted_orders_wrapper .dataTables_filter input').addClass("input-medium"); // modify table search input
-        jQuery('#accepted_orders_wrapper .dataTables_length select').addClass("input-mini"); // modify table per page dropdown
-    </script>
+      
+   
 </body>
 <!-- END BODY -->
 </html>
