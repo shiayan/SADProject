@@ -354,7 +354,7 @@
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
                   <h3 class="page-title">
                     
-                    ثبت کالای جدید
+                    سفارش جدید
                   </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -378,7 +378,7 @@
                     <!-- BEGIN EXAMPLE TABLE widget-->
                     <div class="widget">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i>ثبت کالای جدید</h4>
+                            <h4><i class="icon-reorder"></i>سفارش جدید</h4>
                             <span class="tools">
                                 
                             </span>
@@ -390,47 +390,67 @@
 
                        
                    
-                        <div class="widget-body form">
-                            <form action="#" class="form-horizontal">
+                        <div class="widget-body">
+                            <div class="widget-body form">
+                             <form action="#" class="form-horizontal">
                             <div class="control-group">
-                              <label class="control-label">نام کالا</label>
+                              <label class="control-label">نام</label>
                               <div class="controls">
-                                 <input type="text" class="span6 " />
+                                 <input type="text"  class="input-mini"  />
                                  
                               </div>
                            </div>
-						   <div class="control-group">
-                              <label class="control-label">شماره سفارش</label>
+                                  <div class="control-group">
+                              <label class="control-label">تعداد</label>
                               <div class="controls">
-                                 <input type="text" class="span6 " />
+                                 <input type="text"   class="input-mini"  />
                                  
                               </div>
                            </div>
-						   
-						    <div class="control-group">
-                              <label class="control-label">شماره کالا در سفارش</label>
-                              <div class="controls">
-                                 <select class="span6 " data-placeholder="Choose a Category" tabindex="1">
-                                    <option value=""> انتخاب </option>
-                                    <option value="Category 1">شماره 1 </option>
-                                    <option value="Category 2">شماره 2</option>
-                                    <option value="Category 3">شماره 3</option>
-                                    <option value="Category 4">شماره 4</option>
-								 </select>
-                              </div>
-                           </div>
-						   
                                  <div class="control-group">
-                              <label class="control-label">متن ارسالی به مالک کالا</label>
+                              <label class="control-label">شرح</label>
                               <div class="controls">
                                  <textarea class="span6 " rows="8"></textarea>
                               </div>
                            </div>
-                                <div class="form-actions">
+                                  <div class="control-group">
+                             
+                              <div class="controls">
+                                  <button class="btn btn-warning"><i class="icon-plus icon-white"></i> اضافه</button>
+                              
+                              </div>
+                           </div>
+                              
+                        
+                              </form>
+                                <br />
+                            <table class="table table-striped table-bordered" id="order_view">
+                            <thead>
+                                <tr>
+                                    <th class="hidden-phone">اسم</th>
+                                    <th class="hidden-phone">مقدار</th>
+                                    <th class="hidden-phone">توضیح</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td class="hidden-phone">ماوس</td>
+                                    <td class="center hidden-phone">15</td>
+                                   <td class="hidden-phone">ماوس لپتاپ درجه یک</td>
+                                    <td>  <button class="btn btn-danger"><i class="icon-remove icon-white"></i>حذف</button></td>
+                                </tr>
+                                 
+                                
+                             </tbody>
+                        </table>
+                                <form action="#" class="form-horizontal">
+                                  <div class="form-actions">
                               <button type="submit" class="btn btn-success">ثبت</button>
-                              <button type="button" class="btn">الغا</button>
+                            
                            </div>
                                 </form>
+                        </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE widget-->
