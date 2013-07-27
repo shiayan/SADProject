@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+
+<!-- BEGIN HEAD -->
+
+<head>
+   <meta charset="utf-8" />
+   <title>
+   	 {% block title %}
+       صفحه‌ی نخست
+     {% endblock %}
+   	 </title>
+   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+   <meta content="" name="description" />
+   <meta content="" name="author" />
+   <style type="text/css">
+    .auto-style1 {
+        color: #FF0066;
+    }
+	</style>
+   <link href="{% static "assets/bootstrap-rtl/css/bootstrap-rtl.min.css" %}" rel="stylesheet" />
+   <link href="{% static "assets/bootstrap-rtl/css/bootstrap-responsive-rtl.min.css" %}" rel="stylesheet" />
+   <link href="{% static "assets/font-awesome/css/font-awesome.css" %}" rel="stylesheet" />
+   <link href="{% static "css/style.css" %}" rel="stylesheet" />
+   <link href="{% static "css/style_responsive.css" %}" rel="stylesheet" />
+   <link href="{% static "css/style_default.css" %}" rel="stylesheet" id="style_color" />
+
+   <link href="{% static "assets/fancybox/source/jquery.fancybox.css" %}" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="{% static "assets/uniform/css/uniform.default.css" %}" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top">
+  <!-- BEGIN HEADER -->
+   <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+       <!-- BEGIN TOP NAVIGATION BAR -->
+       <div class="navbar-inner">
+           <div class="container-fluid">
+               <!-- BEGIN LOGO -->
+               <a class="brand" href="index.html">
+                   <img src="{% static "img/logo.png" %}" alt="Admin Lab" />
+               </a>
+               <!-- END LOGO -->
+               <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+               <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="arrow"></span>
+               </a>
+               <!-- END RESPONSIVE MENU TOGGLER -->
+             
+               <!-- END  NOTIFICATION -->
+               <div class="top-nav ">
+                   <ul class="nav pull-left top-menu" >
+                     
+                       <!-- END SUPPORT -->
+                       <!-- BEGIN USER LOGIN DROPDOWN -->
+                       <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <span class="username">Mosaddek Hossain</span>
+                               <b class="caret"></b>
+                           </a>
+                           <ul class="dropdown-menu">
+                                <li><a href="login.html"><i class="icon-key"></i>خروج</a></li>
+                           </ul>
+                       </li>
+                       <!-- END USER LOGIN DROPDOWN -->
+                   </ul>
+                   <!-- END TOP NAVIGATION MENU -->
+               </div>
+           </div>
+       </div>
+       <!-- END TOP NAVIGATION BAR -->
+   </div>
+   <!-- END HEADER -->
+   <!-- BEGIN CONTAINER -->
+   <div id="container" class="row-fluid">
+      <!-- BEGIN SIDEBAR -->
+      <div id="sidebar" class="nav-collapse collapse">
+         <div class="sidebar-toggler hidden-phone"></div>
+         <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+         <div class="navbar-inverse">
+            <form class="navbar-search visible-phone">
+               <input type="text" class="search-query" placeholder="Search" />
+            </form>
+         </div>
+         <!-- END RESPONSIVE QUICK SEARCH FORM -->
+         <!-- BEGIN SIDEBAR MENU -->
+          <ul class="sidebar-menu">
+              <li><a class="" href="/"><span class="icon-box"><i class="icon-home"></i></span>خانه</a></li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"> <i class="icon-book"></i></span> انبارداری
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="Inventory.html">لیست کالاها</a></li>
+                      <li><a class="" href="newGood.html">ثبت کالای جدید</a></li>
+
+                      <li><a class="" href="delivery.html">ثبت تحویل کالا</a></li>
+                      <li><a class="" href="unlabeledGoods.html">لیست کالاهای بی‌برچسب</a></li>
+                      <li><a class="" href="attachLabel.html">ثبت رسید کالا</a></li>
+                     
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-file-alt"></i></span> سفارش‌ها
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="/order/myorders/">سفارش‌های من</a></li>
+                      <li><a class="" href="/order/addorder/">ثبت سفارش</a></li>
+                      <li><a class="" href="/order/unviewedorders/">سفارش‌های بررسی نشده</a></li>
+                      <li><a class="" href="/order/allorders/">کل سفارش‌ها</a></li>
+                      <li><a class="" href="/order/acceptedorders/">سفارش‌های تایید شده</a></li>
+                      <li><a class="" href="/order/buyorders/">سفارش‌های غیر موجود</a></li>
+                      <li><a class="" href="submitComplaint.html">ثبت شکایت</a></li>
+                      
+                    
+                  </ul>
+              </li>
+             <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-plus"></i></span>تعمیر و خرابی
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="RecordDamage.html">ثبت کالای خراب</a></li>
+                      <li><a class="" href="DamagedGoods.html">کالاهای خراب</a></li>
+                      <li><a class="" href="MyDamagedGoods.html">کالاهای خراب من</a></li>
+                  </ul>
+              </li>
+              
+                 <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-user"></i></span>کاربران
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="addUser.html">اضافه کردن کاربر</a></li>
+                      <li><a class="" href="users.html">لیست کاربران</a></li>
+                  </ul>
+              </li>
+             
+          </ul>
+         <!-- END SIDEBAR MENU -->
+      </div>
+      <!-- END SIDEBAR -->
+      {% block content %}
+       Page
+     {% endblock %}
+
+      
+
+            <!-- END PAGE CONTENT-->
+         </div>
+         <!-- END PAGE CONTAINER-->
+      
+      <!-- END PAGE -->
+   
+   <!-- END CONTAINER -->
+   <!-- BEGIN FOOTER -->
+   <div id="footer">
+       2013 &copy;MEHRANIK
+      <div class="span pull-left">
+         <span class="go-top"><i class="icon-arrow-up"></i></span>
+      </div>
+   </div>
+   <!-- END FOOTER -->
+   <!-- BEGIN JAVASCRIPTS -->
+   <!-- Load javascripts at bottom, this will reduce page load time -->
+   <script src="{% static "js/jquery-1.8.3.min.js" %}"></script>
+   <script src="{% static "assets/bootstrap-rtl/js/bootstrap.min.js" %}"></script>
+   <script src="{% static "js/jquery.blockui.js" %}"></script>
+   <!-- ie8 fixes -->
+   <!--[if lt IE 9]>
+   <script src="{% static "js/excanvas.js" %}"></script>
+   <script src="{% static "js/respond.js" %}"></script>
+   <![endif]-->   
+   <script type="text/javascript" src="{% static "assets/uniform/jquery.uniform.min.js" %}"></script>
+   
+    <script src="{% static "js/scripts.js" %}"></script>
+  
+   <script>
+       jQuery(document).ready(function () {
+           // initiate layout and plugins
+           App.init();
+       });
+   </script>
+      
+   {% block scripts %}
+   {% endblock %}
+</body>
+<!-- END BODY -->
+

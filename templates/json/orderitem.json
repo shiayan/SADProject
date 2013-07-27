@@ -1,0 +1,31 @@
+﻿{% load order_filters %}
+{
+"sEcho" : {{sEcho}},
+"iTotalRecords" : {{iTotalRecords}},
+"iTotalDisplayRecords" : {{iTotalDisplayRecords}},	
+"aaData": [
+				{% for order_item in objects %}
+				[
+				"{{ order_item.pk }}",
+                "{{ order_item.name }}",
+				"{{ order_item.category.name }} <input id=\"cat_pk\" type=\"hidden\" value=\"{{order_item.category.pk}}\" />",
+                "{{ order_item.quantity }}",
+                 "<textarea disabled>{{ order_item.description }}</textarea>"{%if show_status %},
+				"<span class=\"{{order_item.status|order_item_status_span}}\">{{order_item.status|order_item_status}}</span>"{% endif %}{% if edit %} ,
+				
+				 "<button  order=\"{{order_item.pk}}\" role=\"order_item_edit\" edittype=\"edit\"   class=\"btn mini green-stripe\">ویرایش</button> <button class=\"btn btn-danger\" type=\"submit\" role=\"order_item_delete\" order=\"{{order_item.pk}}\" ><i class=\"icon-remove icon-white\"></i>حذف</button>"
+
+                {% endif %}{% if accepted %},
+				 "<button  pk=\"{{order_item.pk}}\" role=\"order_item_instock\" edittype=\"edit\"   class=\"btn btn-success\">موجود در انبار</button> <button class=\"btn btn-info\" type=\"submit\" role=\"order_item_tobuy\" pk=\"{{order_item.pk}}\" >خرید</button>"
+                {% endif %}
+				]
+				{% if not forloop.last %}
+				,
+				{% endif %}
+                {% endfor %}
+
+			] 
+
+
+
+}

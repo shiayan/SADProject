@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+موفقیت
+    </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <style type="text/css">
+        .auto-style1 {
+            color: #FF0066;
+        }
+    </style>
+    <link href="{% static "assets/bootstrap-rtl/css/bootstrap-rtl.min.css" %}" rel="stylesheet" />
+    <link href="{% static "assets/bootstrap-rtl/css/bootstrap-responsive-rtl.min.css" %}" rel="stylesheet" />
+    <link href="{% static "assets/font-awesome/css/font-awesome.css" %}" rel="stylesheet" />
+    <link href="{% static "css/style.css" %}" rel="stylesheet" />
+    <link href="{% static "css/style_responsive.css" %}" rel="stylesheet" />
+    <link href="{% static "css/style_default.css" %}" rel="stylesheet" id="style_color" />
+
+    <link href="{% static "assets/fancybox/source/jquery.fancybox.css" %}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static "assets/uniform/css/uniform.default.css" %}" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top">
+<!-- BEGIN HEADER -->
+
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+
+
+
+        <div class="container-fluid">
+
+
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+
+
+
+                    <div class="alert alert-success">
+{{ success }}
+                    </div>
+
+
+
+
+
+
+
+                </div>
+
+                <!-- END ADVANCED TABLE widget-->
+
+                <!-- END PAGE CONTENT-->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+
+
+<script>
+    var delay = 5000;
+    setTimeout(function(){ window.location.href = '{{ rlink }}';}, delay);
+</script>
+</body>
+<!-- END BODY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

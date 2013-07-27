@@ -1,0 +1,184 @@
+{% extends "master.html" %}
+{% load staticfiles %}
+{% load order_filters %}
+{% block title %}
+    سفارش جدید
+{% endblock %}
+{% block content %}
+
+    <div id="main-content">
+        <!-- BEGIN PAGE CONTAINER-->
+        <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <h3 class="page-title">
+
+                        سفارش جدید
+                    </h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                        </li>
+
+                        <li><a href="addOrder.html">سفارش جدید</a><span class="divider-last">&nbsp;</span></li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+
+
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>سفارش جدید</h4>
+                            <span class="tools">
+                                
+                            </span>
+
+                        </div>
+
+
+
+
+
+                        <div class="widget-body">
+
+                            <div class="widget-body form">
+                                <div class="form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label">نام</label>
+                                        <div class="controls">
+                                            <input type="text" id="txtName"  class="input-mini"  />
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">دسته</label>
+                                        <div class="controls">
+                                            <select id="optCat" class="span6">{% good_cats %}</select>
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">تعداد</label>
+                                        <div class="controls">
+                                            <input type="text" id="txtQuantity"   class="input-mini"  />
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">شرح</label>
+                                        <div class="controls">
+                                            <textarea class="span6 " id="txtDscp" rows="8"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+
+                                        <div class="controls">
+                                            <button id="btnAddItem" class="btn btn-warning"><i class="icon-plus icon-white"></i> اضافه</button>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br />
+                                <table class="table table-striped table-bordered" id="order_items">
+                                    <thead>
+                                    <tr>
+                                        <th class="hidden-phone">اسم</th>
+                                        <th class="hidden-phone">دسته</th>
+                                        <th class="hidden-phone">مقدار</th>
+                                        <th class="hidden-phone">توضیح</th>
+                                        <th class="hidden-phone"></th> <!-- Cat Value   !-->
+                                        <th class="hidden-phone"></th> <!-- Description !-->
+                                        <th class="hidden-phone"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+
+                                    </tbody>
+                                </table>
+                                <div class="form-horizontal">
+
+                                    <div class="form-actions">
+
+                                        <button id="btnSubmit" type="submit" class="btn btn-success">ثبت</button>
+
+                                    </div>
+
+                                </div>
+                                <form action="../do/addorder/" id="frmFinalPost" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="tableData" id="tableData" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE widget-->
+                </div>
+            </div>
+
+            <!-- END ADVANCED TABLE widget-->
+
+            <!-- END PAGE CONTENT-->
+        </div>
+        <!-- END PAGE CONTAINER-->
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
+    <script>
+          $('#btnAddItem').click(
+              function(){
+                  $("#order_items").dataTable().fnAddData(
+                          [
+                            $("#txtName").val(),
+                              $('#optCat option:selected').text(),
+                                 $("#txtQuantity").val(),
+                                "<textarea disabled >" +  $("#txtDscp").val() + "</textarea>",
+                              $("#optCat").val(),
+                              $("#txtDscp").val(),
+                                 "<button class=\"btn btn-danger\" type=\"submit\" ><i class=\"icon-remove icon-white\"></i>حذف</button>"
+
+                          ]
+                  )
+
+          }
+          )
+         $("#btnSubmit").click(function (){
+             if($oTable.fnGetData().length > 0){
+                $("#tableData").val(JSON.stringify($oTable.fnGetData()));
+                $("#frmFinalPost").submit();
+             }
+         });
+         var $oTable =  $('#order_items').dataTable({
+              "bPaginate" : false,
+              "bFilter" : false,
+              "bInfo" : false,
+             "bAutoWidth": false,
+              "aoColumnDefs": [
+                  { "bVisible": false, "aTargets": [4 ] },
+                  { "bVisible": false, "aTargets": [5 ] }
+              ] });
+          $('#order_items button').live('click', function (e) {
+              e.preventDefault();
+
+              var nRow = $(this).parents('tr')[0];
+              $oTable.fnDeleteRow( nRow );
+          } );
+
+    </script>
+{% endblock%}
