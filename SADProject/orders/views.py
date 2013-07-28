@@ -16,15 +16,15 @@ def render_to_response_wrapper(request,template):
     c.update(csrf(request))
     return render_to_response(template,c);
 
-def jsonListGenerator(request,columns,data,template,my_dict = {}):
+def jsonListGenerator(request,columns,data,template,my_dict = {},default_filters = {}):
     filters = ['__gte','__lte','']
-    args = {}
+    args = default_filters
     for column in columns:
         for fltr in filters:
             if column + fltr in request.GET:
                 args.update({column + fltr : request.GET[column+fltr]})
 
-    data = data.filter(**args)
+    data = data.filter(**args).distinct()
 
     iTotalRecords = data.count()
     iTotalDisplayRecords = data.count()
@@ -67,32 +67,21 @@ def changeQuerySet(request,columns,queryset):
 
     queryset.filter(pk = pk).update(**args)
     return HttpResponse("Changed");
+def ordersJson(request,show_status=True,show_user=False,show_edit=False,filters={}):
+    columns = ['pk', 'user', 'submitDate', 'status']
+    data = Order.objects.all()
+    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/order.json",
+                             my_dict={"show_edit":show_edit,"show_status":show_status,"show_user":show_user},
+                             default_filters=filters)
 
-def myOrdersJson(request):
-    columns = ['pk','submitDate','status']
-    data = Order.objects.filter(user = 1)
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/myorders.json")
 
-def allOrdersJson(request):
-    columns = ['pk','submitDate','status']
-    data = Order.objects
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/allorders.json")
-
-def buyOrdersJson(request):
-    columns = ['pk','submitDate']
-    data = Order.objects.filter(orderitem__status ='P',status='A').distinct()
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/acceptedorders.json")
-
-def acceptedOrdersJson(request):
-    columns = ['pk','submitDate']
-    data = Order.objects.filter(orderitem__status ='N',status='A').distinct()
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/acceptedorders.json")
-
-def viewOrderJson(request,edit=False,show_status=True,accepted=False):
+def viewOrderJson(request,edit=False,show_status=True,accepted=False,filters={}):
     columns = ['pk','category__name','name','description','quantity','status','order']
 
     data = OrderItem.objects.all()
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/orderitem.json",my_dict={"edit":edit,"show_status":show_status,"accepted":accepted})
+    return jsonListGenerator(request = request, columns = columns, data = data,
+                             template = "json/orderitem.json",my_dict={"edit":edit,"show_status":show_status,"accepted":accepted},
+                             default_filters=filters)
 
 def addOrder(request):
     c = request.POST
@@ -137,11 +126,6 @@ def deleteOrderItem(request):
 
 def deleteOrder(request):
     return deleteFromQuerySet(request,Order.objects)
-
-def unviewedOrdersJson(request):
-    columns = ['pk','user','submitDate']
-    data = Order.objects.filter(status = 'N')
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/unviewedorders.json")
 
 
 def unviewedOrdersView(request):

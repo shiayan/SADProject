@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5fde2c5-1175-42a9-acde-8e195250e450" name="Default" comment="" />
+    <list default="true" id="a5fde2c5-1175-42a9-acde-8e195250e450" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/json/order.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assets/font-awesome/docs/assets/img/icon-flag.pdf" afterPath="$PROJECT_DIR$/templates/assets/font-awesome/docs/assets/img/icon-flag.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/DamagedGoods.html" afterPath="$PROJECT_DIR$/templates/DamagedGoods.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Inventory.html" afterPath="$PROJECT_DIR$/templates/Inventory.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/MyDamagedGoods.html" afterPath="$PROJECT_DIR$/templates/MyDamagedGoods.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acceptedorders.html" afterPath="$PROJECT_DIR$/templates/acceptedorders.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/addUser.html" afterPath="$PROJECT_DIR$/templates/addUser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assets/jalalijscalendar/lang/calendar-el.js" afterPath="$PROJECT_DIR$/templates/assets/jalalijscalendar/lang/calendar-el.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/delivery.html" afterPath="$PROJECT_DIR$/templates/delivery.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/editOrder.html" afterPath="$PROJECT_DIR$/templates/editOrder.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/editUser.html" afterPath="$PROJECT_DIR$/templates/editUser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/master.html" afterPath="$PROJECT_DIR$/templates/master.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/myOrders.html" afterPath="$PROJECT_DIR$/templates/myOrders.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/orderForBuyAgent.html" afterPath="$PROJECT_DIR$/templates/orderForBuyAgent.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/orderViewAdmin.html" afterPath="$PROJECT_DIR$/templates/orderViewAdmin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/settings.py" afterPath="$PROJECT_DIR$/SADProject/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/unlabeledGoods.html" afterPath="$PROJECT_DIR$/templates/unlabeledGoods.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/orders/urls.py" afterPath="$PROJECT_DIR$/SADProject/orders/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/users.html" afterPath="$PROJECT_DIR$/templates/users.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/orders/views.py" afterPath="$PROJECT_DIR$/SADProject/orders/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="SADProject.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$USER_HOME$/PycharmProjects/untitled/untitled/urls.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374359563729" ignored="false" />
@@ -11,12 +35,12 @@
     <file path="/Django default" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374543115645" ignored="false" />
     <file path="/warehouse_cats.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374543785401" ignored="false" />
     <file path="/order_filters.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374546370288" ignored="false" />
-    <file path="/urls.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374639149148" ignored="false" />
-    <file path="/views.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374640372773" ignored="false" />
+    <file path="/urls.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374987685180" ignored="false" />
+    <file path="/views.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374978395147" ignored="false" />
     <file path="/a.dummy" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374569545418" ignored="false" />
     <file path="/temp.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374597363200" ignored="false" />
     <file path="/master.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374639319683" ignored="false" />
-    <file path="/settings.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374591941326" ignored="false" />
+    <file path="/settings.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374980029487" ignored="false" />
     <file path="/style.css" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374569562026" ignored="false" />
     <file path="/Django Console" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374594759252" ignored="false" />
     <file path="/add_success.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374600495883" ignored="false" />
@@ -33,6 +57,8 @@
     <file path="/acceptedorders.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374638444092" ignored="false" />
     <file path="/buyorders.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374638666827" ignored="false" />
     <file path="/index.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374639483425" ignored="false" />
+    <file path="/Dummy.txt" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374979643533" ignored="false" />
+    <file path="/order.json" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374966026478" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +80,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="adminAllOrders.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/adminAllOrders.html">
+      <file leaf-file-name="addorder.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/addorder.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="19" selection-start="117" selection-end="117" vertical-scroll-proportion="86.96154">
+            <state line="120" column="61" selection-start="5118" selection-end="5118" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addorder.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/addorder.html">
+      <file leaf-file-name="order.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/json/order.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="61" selection-start="5118" selection-end="5118" vertical-scroll-proportion="6.9863014">
+            <state line="13" column="0" selection-start="430" selection-end="430" vertical-scroll-proportion="-8.5">
               <folding />
             </state>
           </provider>
@@ -75,10 +101,8 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SADProject/orders/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="26" selection-start="5104" selection-end="5104" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#24#74#0" expanded="true" />
-              </folding>
+            <state line="83" column="52" selection-start="3128" selection-end="3128" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,63 +110,43 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SADProject/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="50" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SADProject/views.py">
-          <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="acceptedorders.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/acceptedorders.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="224" column="25" selection-start="8747" selection-end="8747" vertical-scroll-proportion="-5.1153846">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SADProject/orders/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="58" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0">
+            <state line="25" column="4" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.98488665">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django_jalali/db/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="16" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SADProject/warehouse/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="186" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SADProject/orders/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="19" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addOrder2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/addOrder2.html">
+      <file leaf-file-name="acceptedorders.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/json/acceptedorders.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unviewedorders.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/json/unviewedorders.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="381" selection-start="264" selection-end="630" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
@@ -155,25 +159,33 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/myOrders.html" />
-        <option value="$PROJECT_DIR$/templates/json/myorders.json" />
         <option value="$PROJECT_DIR$/templates/json/unviewedorders.json" />
         <option value="$PROJECT_DIR$/templates/unacceptedOrders.html" />
         <option value="$PROJECT_DIR$/templates/json/allorders.json" />
         <option value="$PROJECT_DIR$/templates/adminAllOrders.html" />
         <option value="$PROJECT_DIR$/templates/json/acceptedorders.json" />
         <option value="$PROJECT_DIR$/templates/json/orderitem.json" />
-        <option value="$PROJECT_DIR$/templates/acceptedorders.html" />
         <option value="$PROJECT_DIR$/templates/buyorders.html" />
         <option value="$PROJECT_DIR$/templates/master.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/addorder.html" />
-        <option value="$PROJECT_DIR$/SADProject/orders/urls.py" />
         <option value="$PROJECT_DIR$/templates/success.html" />
+        <option value="$PROJECT_DIR$/templates/json/order.json" />
         <option value="$PROJECT_DIR$/SADProject/orders/views.py" />
+        <option value="$PROJECT_DIR$/templates/acceptedorders.html" />
+        <option value="$PROJECT_DIR$/SADProject/orders/urls.py" />
+        <option value="$PROJECT_DIR$/SADProject/settings.py" />
       </list>
     </option>
   </component>
@@ -183,14 +195,14 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -209,7 +221,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -276,17 +287,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="editor" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -298,6 +310,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PyCharm\SADProject\templates\json" />
       <recent name="D:\aptana-workspace\SADProject\templates" />
       <recent name="D:\aptana-workspace\SADProject\templates\json" />
     </key>
@@ -457,17 +470,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19318181" sideWeight="0.67064846" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.64115644" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27121213" sideWeight="0.64285713" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.7772109" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35714287" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22278911" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -517,7 +530,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -535,47 +548,86 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/json/acceptedorders.json">
+    <entry file="file://$PROJECT_DIR$/templates/adminAllOrders.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="16" selection-start="265" selection-end="265" vertical-scroll-proportion="-5.230769" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/buyorders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="48" selection-start="6570" selection-end="6570" vertical-scroll-proportion="0.0">
+        <state line="5" column="19" selection-start="117" selection-end="117" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/master.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="36" selection-start="3771" selection-end="3771" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="76" selection-start="2008" selection-end="2008" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/warehouse_cats.html">
+    <entry file="file://$PROJECT_DIR$/templates/json/myorders.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/success.html">
+    <entry file="file://$PROJECT_DIR$/templates/json/allorders.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="47" selection-start="1888" selection-end="1888" vertical-scroll-proportion="0.0">
+        <state line="9" column="22" selection-start="224" selection-end="230" vertical-scroll-proportion="-3.9230769">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SADProject/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/json/orderitem.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="61" selection-start="5118" selection-end="5118" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/json/order.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="430" selection-end="430" vertical-scroll-proportion="-8.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/template/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="13" selection-start="3761" selection-end="3761" vertical-scroll-proportion="0.33170733">
+          <folding>
+            <marker date="1361905456000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/template/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="20" selection-start="6972" selection-end="6972" vertical-scroll-proportion="0.50377834">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/shortcuts/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="37" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.67053366">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/json/unviewedorders.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="381" selection-start="264" selection-end="630" vertical-scroll-proportion="-7.1923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SADProject/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/json/acceptedorders.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -584,67 +636,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SADProject/orders/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="26" selection-start="5104" selection-end="5104" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#24#74#0" expanded="true" />
-          </folding>
+        <state line="83" column="52" selection-start="3128" selection-end="3128" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SADProject/urls.py">
+    <entry file="file://$PROJECT_DIR$/SADProject/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="50" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
+        <state line="23" column="0" selection-start="804" selection-end="804" vertical-scroll-proportion="0.99444443">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/acceptedorders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="224" column="25" selection-start="8747" selection-end="8747" vertical-scroll-proportion="-5.1153846">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SADProject/orders/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="58" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django_jalali/db/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="16" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SADProject/warehouse/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="186" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SADProject/orders/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="19" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addOrder2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminAllOrders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="117" selection-end="117" vertical-scroll-proportion="86.96154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addorder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="61" selection-start="5118" selection-end="5118" vertical-scroll-proportion="6.9863014">
+        <state line="25" column="4" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.98488665">
           <folding />
         </state>
       </provider>
