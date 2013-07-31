@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5fde2c5-1175-42a9-acde-8e195250e450" name="Default" comment="User Added">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SADProject/myUser/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SADProject/myUser/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SADProject/myUser/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SADProject/myUser/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SADProject.iml" afterPath="$PROJECT_DIR$/.idea/SADProject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/warehouse/admin.py" afterPath="$PROJECT_DIR$/SADProject/warehouse/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/warehouse/models.py" afterPath="$PROJECT_DIR$/SADProject/warehouse/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/utils/templatetags/tags.py" afterPath="$PROJECT_DIR$/SADProject/utils/templatetags/tags.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/warehouse/tests.py" afterPath="$PROJECT_DIR$/SADProject/warehouse/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SADProject/warehouse/views.py" afterPath="$PROJECT_DIR$/SADProject/warehouse/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SADProject.iws" />
@@ -39,18 +42,19 @@
     <file path="/acceptedorders.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374638444092" ignored="false" />
     <file path="/buyorders.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374638666827" ignored="false" />
     <file path="/index.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374639483425" ignored="false" />
-    <file path="/Dummy.txt" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375265193739" ignored="false" />
+    <file path="/Dummy.txt" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375265950445" ignored="false" />
     <file path="/order.json" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375224454730" ignored="false" />
     <file path="/admin.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375138102821" ignored="false" />
     <file path="/datastructures.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375138679738" ignored="false" />
     <file path="/login.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375144505427" ignored="false" />
     <file path="/backend.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375171632410" ignored="false" />
     <file path="/addUser.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375224256191" ignored="false" />
-    <file path="/tags.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375242685870" ignored="false" />
+    <file path="/tags.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375265894161" ignored="false" />
     <file path="/acceptedorders.json" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375224443078" ignored="false" />
     <file path="/users.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375261798571" ignored="false" />
     <file path="/users.json" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375242346243" ignored="false" />
     <file path="/user_groups.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375257261615" ignored="false" />
+    <file path="/addgood.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375265937640" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +75,28 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="tags.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SADProject/utils/templatetags/tags.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="44" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#67#94#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addgood.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/addgood.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="12" selection-start="63" selection-end="63" vertical-scroll-proportion="0.1086262">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -89,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/json/order.json" />
         <option value="$PROJECT_DIR$/templates/json/orderitem.json" />
         <option value="$PROJECT_DIR$/SADProject/settings.py" />
         <option value="$PROJECT_DIR$/templates/myOrders.html" />
@@ -98,13 +122,14 @@
         <option value="$PROJECT_DIR$/templates/json/users.json" />
         <option value="$PROJECT_DIR$/templates/warehouse_cats.html" />
         <option value="$PROJECT_DIR$/SADProject/orders/admin.py" />
-        <option value="$PROJECT_DIR$/SADProject/utils/templatetags/tags.py" />
         <option value="$PROJECT_DIR$/SADProject/orders/views.py" />
         <option value="$PROJECT_DIR$/templates/user_groups.html" />
         <option value="$PROJECT_DIR$/SADProject/myUser/urls.py" />
         <option value="$PROJECT_DIR$/templates/addorder.html" />
         <option value="$PROJECT_DIR$/templates/users.html" />
         <option value="$PROJECT_DIR$/SADProject/myUser/views.py" />
+        <option value="$PROJECT_DIR$/SADProject/utils/templatetags/tags.py" />
+        <option value="$PROJECT_DIR$/templates/addgood.html" />
       </list>
     </option>
   </component>
@@ -140,7 +165,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -283,18 +307,19 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="vcs.Git" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/SADProject/utils/view_utils.py" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -419,7 +444,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="SADProject.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:/Python27/python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <module name="SADProject" />
@@ -513,25 +538,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32993197" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19318181" sideWeight="0.67064846" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.64115644" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27348486" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2780303" sideWeight="0.6218058" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3792517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3781942" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282313" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -595,25 +620,14 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SADProject/orders/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/data_table.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="28" selection-start="296" selection-end="296" vertical-scroll-proportion="0.25373134">
-          <folding />
-        </state>
+        <state line="8" column="28" selection-start="296" selection-end="296" vertical-scroll-proportion="0.25373134" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/warehouse_cats.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/unacceptedOrders.html">
@@ -626,9 +640,7 @@
     <entry file="file://$PROJECT_DIR$/templates/addUser.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="25" selection-start="1754" selection-end="4101" vertical-scroll-proportion="-2.5384614">
-          <folding>
-            <element signature="tag#div#1;tag#div#0;tag#div#0;tag#div#1;tag#div#0;tag#div#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -687,16 +699,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SADProject/myUser/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SADProject/myUser/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/json/orderitem.json">
@@ -708,7 +716,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SADProject/utils/templatetags/tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="27" selection-start="1055" selection-end="1055" vertical-scroll-proportion="0.5766871">
+        <state line="11" column="44" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#67#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addgood.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="12" selection-start="63" selection-end="63" vertical-scroll-proportion="0.1086262">
           <folding />
         </state>
       </provider>

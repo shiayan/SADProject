@@ -5,5 +5,7 @@ Created on Jul 20, 2013
 '''
 from django.contrib import admin
 from SADProject.warehouse.models import Category
+from SADProject.warehouse.models import Good
 
-#admin.site.register(Category)
+admin.site.register(Category)
+admin.site.register(Good)

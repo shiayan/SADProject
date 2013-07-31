@@ -1,0 +1,123 @@
+{% extends "master.html" %}
+{% load staticfiles %}
+{% load tags %}
+{% block title %}
+    ثبت کالای جدید
+{% endblock %}
+{% block content %}
+
+    <div id="main-content">
+        <!-- BEGIN PAGE CONTAINER-->
+        <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <h3 class="page-title">
+
+                        ثبت کالای جدید
+                    </h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                        </li>
+
+                        <li><a href="/warehouse/addgood/">ثبت کالای جدید</a><span class="divider-last">&nbsp;</span></li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+
+
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>ثبت کالای جدید</h4>
+                            <span class="tools">
+                                
+                            </span>
+
+                        </div>
+
+
+
+
+
+                        <div class="widget-body">
+							<form action="../do/addgood/" id="frmFinalPost" method="post">
+
+                            <div class="widget-body form">
+                                <div class="form-horizontal">
+                                    <div class="control-group" >
+                                        <label class="control-label">دسته</label>
+                                        <div class="controls">
+                                            <select name="CAT" id="optCat" class="span6">{% good_cats %}</select>
+
+                                        </div>
+                                    </div>
+									<div class="control-group" >
+                                        <label class="control-label">شماره سفارش</label>
+                                        <div class="controls">
+                                            <input  type="text" name ="NO" id="txtQuantity"   class="input-mini"  />
+
+                                        </div>
+                                    </div>
+									<div class="control-group" >
+                                        <label class="control-label">شماره کالا در سفارش </label>
+                                        <div class="controls">
+                                            <input type="text" name="NOI" id="ordnum"   class="input-mini"  />
+
+                                        </div>
+                                    </div>
+                                    
+									<div class="control-group" >
+                                        <label class="control-label">شرح</label>
+                                        <div class="controls">
+                                            <textarea name="DIS" class="span6 " id="txtDscp" rows="8"></textarea>
+                                        </div>
+                                    </div>
+                                                           
+
+
+                                </div>
+                                <br />
+                                <div class="form-horizontal">
+
+                                    <div class="form-actions">
+
+                                        <button id="btnSubmit" type="submit" class="btn btn-success">ثبت</button>
+
+                                    </div>
+
+                                </div>
+								{% csrf_token %}
+                                </form>                                    
+									
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE widget-->
+                </div>
+            </div>
+
+            <!-- END ADVANCED TABLE widget-->
+
+            <!-- END PAGE CONTENT-->
+        </div>
+        <!-- END PAGE CONTAINER-->
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
+    <script>
+
+    </script>
+{% endblock%}

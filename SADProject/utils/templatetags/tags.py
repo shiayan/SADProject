@@ -9,6 +9,8 @@ from SADProject.orders.models import Order,OrderItem
 from  SADProject.warehouse.models import  Category
 from django.template.loader import render_to_string
 from django.contrib.auth.models import Group
+from SADProject.warehouse.models import Good
+
 register = template.Library()
 @register.filter(name='order_status_span')
 def order_status_span(value):
@@ -47,3 +49,11 @@ def user_groups():
 @register.simple_tag
 def good_cats():
     return render_to_string("warehouse_cats.html",{"data" : Category.objects.all()})
+@register.filter(name='good_status_span')
+def good_status_span(value):
+    status_span = {'L' : "label label-success"  , 'W' :  "label", 'D' : "label label-inverse" , 'U' : "label label-info"}
+    return status_span[value]
+
+@register.filter(name = 'good_status')
+def good_status(value):
+    return dict(Good.GOOD_STATUS_CHOICES)[value]
