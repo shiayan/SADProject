@@ -5,12 +5,16 @@
 *.pydevproject
 .project
 .metadata
+.idea\
 bin/
 tmp/
 *.tmp
 *.bak
 *.swp
 *~.nib
+*.xml
+*.iml
+.imt
 local.properties
 .classpath
 .settings/
