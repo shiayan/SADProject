@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5fde2c5-1175-42a9-acde-8e195250e450" name="Default" comment="User Added">
+    <list default="true" id="a5fde2c5-1175-42a9-acde-8e195250e450" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SADProject.iws" />
@@ -35,7 +35,7 @@
     <file path="/acceptedorders.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374638444092" ignored="false" />
     <file path="/buyorders.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374638666827" ignored="false" />
     <file path="/index.html" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1374639483425" ignored="false" />
-    <file path="/Dummy.txt" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375265102199" ignored="false" />
+    <file path="/Dummy.txt" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375265146937" ignored="false" />
     <file path="/order.json" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375224454730" ignored="false" />
     <file path="/admin.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375138102821" ignored="false" />
     <file path="/datastructures.py" changelist="a5fde2c5-1175-42a9-acde-8e195250e450" time="1375138679738" ignored="false" />
@@ -477,7 +477,11 @@
       <created>1375264039267</created>
       <updated>1375264039267</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="User Added">
+      <created>1375265150930</created>
+      <updated>1375265150930</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
