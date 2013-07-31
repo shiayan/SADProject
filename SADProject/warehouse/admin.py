@@ -6,4 +6,4 @@ Created on Jul 20, 2013
 from django.contrib import admin
 from SADProject.warehouse.models import Category
 
-admin.site.register(Category)
+#admin.site.register(Category)

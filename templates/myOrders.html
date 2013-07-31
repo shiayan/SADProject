@@ -78,7 +78,7 @@
 					</div>
 
 					<div class="widget-body">
-						<table class="table table-striped table-bordered" id="accepted_orders">
+						<table class="table table-striped table-bordered" id="my_orders">
 							<thead>
 								<tr>
 									<th>شماره</th>
@@ -250,7 +250,7 @@
         	var sTable = -1;
 
         
-		var oTable = $('#accepted_orders').dataTable({
+		var oTable = $('#my_orders').dataTable({
 			"bFilter" : false,
 			"bProcessing" : true,
 			"bServerSide" : true,
@@ -292,9 +292,9 @@
 			}
 		});
 
-		jQuery('#accepted_orders_wrapper').find('.dataTables_filter input').addClass("input-medium");
+		jQuery('#my_orders_wrapper').find('.dataTables_filter input').addClass("input-medium");
 		// modify table search input
-		jQuery("#accepted_orders_wrapper").find('.dataTables_length select').addClass("input-mini");
+		jQuery("#my_orders_wrapper").find('.dataTables_length select').addClass("input-mini");
 		// modify table per page dropdown
 	</script>
 

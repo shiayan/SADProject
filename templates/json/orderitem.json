@@ -1,4 +1,4 @@
-﻿{% load order_filters %}
+﻿{% load tags %}
 {
 "sEcho" : {{sEcho}},
 "iTotalRecords" : {{iTotalRecords}},

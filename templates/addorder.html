@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 {% load staticfiles %}
-{% load order_filters %}
+{% load tags %}
 {% block title %}
     سفارش جدید
 {% endblock %}
@@ -100,7 +100,7 @@
                                         <th class="hidden-phone">توضیح</th>
                                         <th class="hidden-phone"></th> <!-- Cat Value   !-->
                                         <th class="hidden-phone"></th> <!-- Description !-->
-                                        <th class="hidden-phone"></th>
+                                        <th class="hidden-phone">  </th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -118,6 +118,7 @@
                                     </div>
 
                                 </div>
+
                                 <form action="../do/addorder/" id="frmFinalPost" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="tableData" id="tableData" />

@@ -1,6 +1,6 @@
 ﻿{% extends "master.html" %}
 {% load staticfiles %}
-{% load order_filters %}
+{% load tags %}
 {% block title %}
    سفارش‌‌های بررسی نشده
 {% endblock %}
@@ -117,6 +117,7 @@
 {%  block scripts %}
 
 <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/csrf.ajax.js" %}"></script>
 <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
 <script type="text/javascript" src="{% static "assets/bootstrap-datepicker/js/jquery.ui.datepicker-cc.all.min.js" %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap-datepicker/styles/jquery.ui.datepicker1.8-all.css" %}" />
@@ -134,35 +135,7 @@
 </script>
 
 <script>
-// using jQuery
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie != '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-var csrftoken = getCookie('csrftoken');
-    function csrfSafeMethod(method) {
-        // these HTTP methods do not require CSRF protection
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-    $.ajaxSetup({
-        crossDomain: false, // obviates need for sameOrigin test
-        beforeSend: function(xhr, settings) {
-            if (!csrfSafeMethod(settings.type)) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        }
-    });
+
 //
     function restoreRow ( oTable, nRow )
     {

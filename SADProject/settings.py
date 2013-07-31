@@ -1,5 +1,6 @@
 # Django settings for SADProject project.
 import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -21,6 +22,8 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = ('django.contrib.auth.context_processors.auth','django.core.context_processors.request', 'django.core.context_processors.debug', 'django.core.context_processors.i18n', 'django.core.context_processors.media', 'django.core.context_processors.static', 'django.core.context_processors.tz', 'django.contrib.messages.context_processors.messages')
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -92,7 +95,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
-
+LOGIN_REDIRECT_URL = "/"
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -102,7 +105,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
+AUTHENTICATION_BACKENDS = ('SADProject.myUser.backend.MyBackend',)
 ROOT_URLCONF = 'SADProject.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -125,6 +128,8 @@ INSTALLED_APPS = (
     'django_jalali',
     'SADProject.orders',
     'SADProject.warehouse',
+    'SADProject.myUser',
+    'SADProject.utils',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
