@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
-from SADProject.utils.view_utils import render_to_response_wrapper, jsonListGenerator
+from SADProject.utils.view_utils import render_to_response_wrapper, jsonListGenerator, deleteFromQuerySet
 from SADProject.warehouse.models import Category
 from models import Order,OrderItem
 from django_jalali.db.models import jDateField
@@ -62,10 +62,7 @@ def addOrder(request):
     c = {'rlink' : '../../myorders/' , 'success' : "سفارش شما با موفقیت ثبت شد تا لحظاتی دیگر به فهرست سفارشاتتان خواهید رفت"}
     return render_to_response("success.html",c);
 
-def deleteFromQuerySet(request,queryset):
-    pk = int(request.POST['pk'])
-    queryset.filter(pk = pk).delete();
-    return HttpResponse("Deleted");
+
 
 def changeOrderItem(request):
     data = request.POST

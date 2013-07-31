@@ -1,1 +1,1 @@
-{%load tags %}{% for group in data  %}<option value="{{group.pk}}">{{  group|user_group_label }}</option>{% endfor %}
+{%load tags %}{% for group in data  %}{% ifnotequal group.name "A" %}<option value="{{group.pk}}">{{  group|user_group_label }}</option>{% endifnotequal %}{% endfor %}

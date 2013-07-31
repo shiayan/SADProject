@@ -1,4 +1,5 @@
 from django.core.context_processors import csrf
+from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -53,3 +54,9 @@ def jsonListGenerator(request,columns,data,template,my_dict = {},default_filters
 
     my_dict.update({"objects" : data,'iTotalRecords' : iTotalRecords , 'iTotalDisplayRecords' : iTotalDisplayRecords,'sEcho' : sEcho})
     return render_to_response(template,my_dict,mimetype='application/json')
+
+
+def deleteFromQuerySet(request,queryset):
+    pk = int(request.POST['pk'])
+    queryset.filter(pk = pk).delete();
+    return HttpResponse("Deleted");

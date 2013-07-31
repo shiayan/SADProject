@@ -31,7 +31,7 @@ def order_item_status(value):
 @register.filter(name='user_group_span')
 def user_group_span(value):
     value = str(value)
-    status_span = {'A' : "label label-important"  , 'S' :  "label label-info", 'T' : "label label-info" , 'B' : "label label-inverse"  }
+    status_span = {'A' : "label label-important"  , 'S' :  "label label-info", 'T' : "label label-success" , 'B' : "label label-inverse"  }
     return status_span[value]
 
 @register.filter(name = 'user_group_label')

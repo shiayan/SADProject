@@ -46,12 +46,65 @@
                             </span>
                             
                         </div>
-                       
-                       
-                          
 
-                      
-                 
+
+                        <div class="widget-body">
+                            <div class="widget-body form">
+                                <div id="message">
+
+                                </div>
+
+                                <form   method="post" class="form-horizontal">
+                                    {% csrf_token %}
+                                    <div class="control-group">
+                                        <label class="control-label">نام کاربری</label>
+
+                                        <div class="controls">
+                                            <input id="username" type="text"    />
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">نام</label>
+                                        <div class="controls">
+                                            <input id="first_name" type="text"    />
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">نام خانوادگی</label>
+                                        <div class="controls">
+                                            <input id="last_name" type="text"    />
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">مسئولیت</label>
+                                        <div class="controls">
+                                            <select id="groups" >{% user_groups %}</select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+
+                                        <div class="controls">
+                                            <button id="btnSubmit" type="submit" class="btn btn-success">ثبت</button>
+
+                                        </div>
+                                    </div>
+
+
+                                </form>
+
+
+
+                            </div>
+                        </div>
+
+
+
+
                         <div class="widget-body">
                             <table class="table table-striped table-bordered" id="users">
                             <thead>
@@ -66,67 +119,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">مجید رحیمی‌نژاد</td>
-                                    <td class="center hidden-phone">  <span class="label label-important">مدیر</span></td>
-                                    <td class="center hidden-phone">majid@ce.sharif.edu</td>
-                                    <td class="hidden-phone">
-                                      <a href="editUser.html" target="_blank"  class="btn btn-primary"><i class="icon-pencil icon-white"></i> ویرایش</a>
-                                       
-                                       
-                                        
-                                    </td>
-                                    
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td>112</td>
-                                    <td class="hidden-phone">علی علی</td>
-                                    <td class="center hidden-phone">  <span class="label label-inverse">مسئول خرید</span></td>
-                                    <td class="center hidden-phone">majid@ce.sharif.edu</td>
-                                    <td class="hidden-phone">
-                                      <a href="editUser.html" target="_blank"  class="btn btn-primary"><i class="icon-pencil icon-white"></i> ویرایش</a>
-                                       
-                                        <button class="btn btn-danger"><i class="icon-remove icon-white"></i>حذف</button>
-                                        
-                                    </td>
-                                </tr>
-                                   <tr class="odd gradeX">
-                                    <td>113</td>
-                                    <td class="hidden-phone">رضا زوربازو</td>
-                                    <td class="center hidden-phone">  <span class="label label-info">انباردار</span></td>
-                                    <td class="center hidden-phone">majid@ce.sharif.edu</td>
-                                    <td class="hidden-phone">
-                                      <a href="editUser.html" target="_blank"  class="btn btn-primary"><i class="icon-pencil icon-white"></i> ویرایش</a>
-                                       
-                                        <button class="btn btn-danger"><i class="icon-remove icon-white"></i>حذف</button>
-                                        
-                                    </td>
-                                </tr> 
-                                 <tr class="odd gradeX">
-                                    <td>113</td>
-                                    <td class="hidden-phone">محمد آل نعمه</td>
-                                    <td class="center hidden-phone">  <span class="label label-success">امین انبار</span></td>
-                                    <td class="center hidden-phone">majid@ce.sharif.edu</td>
-                                    <td class="hidden-phone">
-                                      <a href="editUser.html" target="_blank"  class="btn btn-primary"><i class="icon-pencil icon-white"></i> ویرایش</a>
-                                       
-                                        <button class="btn btn-danger"><i class="icon-remove icon-white"></i>حذف</button>
-                                        
-                                    </td>
-                                </tr> 
-                                <tr class="odd gradeX">
-                                    <td>113</td>
-                                    <td class="hidden-phone">صمد مرفاوی</td>
-                                    <td class="center hidden-phone">  <span class="label">عادی</span></td>
-                                    <td class="center hidden-phone">majid@ce.sharif.edu</td>
-                                    <td class="hidden-phone">
-                                      <a href="editUser.html" target="_blank"  class="btn btn-primary"><i class="icon-pencil icon-white"></i> ویرایش</a>
-                                       
-                                        <button class="btn btn-danger"><i class="icon-remove icon-white"></i>حذف</button>
-                                        
-                                    </td>
-                                </tr> 
+
                              </tbody>
                         </table>
                         </div>
@@ -151,8 +144,30 @@
     <script>
         var deleteRow = null;
         var nEditing = null;
+        $('#btnSubmit').click(function(e){
+            e.preventDefault();
+            $.ajax({
+             type: "POST",
+             url: "../adduser/",
+             data:{
+               username:$('#username').val(),
+               first_name:$('#first_name').val(),
+               last_name:$('#last_name').val(),
+               groups:$('#groups').val()
+            },
+            success: function(data){
+                if(data != 'error'){
+				oTable.fnDraw();
+				}
+				else{
+				$('#message').append('<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>خطا</strong> این نام کاربری موجود است</div>');
+				}
+            }
+            });
+        });
+
         $('button[role|="user_delete"]').live("click", function() {
-            deleteRow = $(this).parents('tr')[0];
+
             $.ajax({
                 type: "POST",
                 url: "../deleteuser/",  // or just url: "/my-url/path/"
@@ -164,15 +179,26 @@
                     oTable.fnDeleteRow(deleteRow);
                 }
             });
+            deleteRow = $(this).parents('tr')[0];
 
 
         });
 
         function restoreRow ( oTable, nRow )
         {
-            oTable.fnDraw();
-        }
+            var aData = oTable.fnGetData(nRow);
+            var jqTds = $('>td', nRow);
 
+            for ( var i=0, iLen=jqTds.length ; i<iLen ; i++ ) {
+                oTable.fnUpdate( aData[i], nRow, i, false );
+            }
+            var jButton = $('button',nRow)[0]
+            $(jButton).attr('edittype','edit')
+            $(jButton).html( editButton)
+            // oTable.fnDraw();
+        }
+        var editButton = '<i class="icon-pencil icon-white"></i> ویرایش'
+		var saveButton = '<i class="icon-save icon-white"></i> ذخیره'
         function editRow ( oTable, nRow,button )
         {
             var aData = oTable.fnGetData(nRow);
@@ -187,12 +213,12 @@
             jqTds[1].innerHTML = '<input class="input-mini" type="text" value="'+aData[1]+'">'; //username
             jqTds[2].innerHTML = '<input class="input-mini" type="text" value="'+aData[2]+'">'; //firstname
             jqTds[3].innerHTML = '<input class="input-mini" type="text" value="'+aData[3]+'">'; //lastname
-            jqTds[4].innerHTML = "<select class=\"input-mini\"  " + '>{% user_groups %}</select>'; //group
+            jqTds[4].innerHTML = "<select   " + '>{% user_groups %}</select>'; //group
             $('select', nRow)[0].value = selected;
-           
 
-            $(button).attr("edittype" , "save");
-            $(button).html( "ذخیره");
+            var jButton = $('button',nRow)[0]
+            $(jButton).attr("edittype" , "save");
+            $(jButton).html( saveButton);
             // jqTds[4].innerHTML = "<textarea>" + description + "</textarea>"; //textArea
             // jqTds[5].innerHTML =  "<a  order=\"" + aData[0]+ "\" role=\"order_item_edit\" edit_type=\"edit\"   class=\"btn mini green-stripe\">??????</a> <button class=\"btn btn-danger\" type=\"submit\" ><i class=\"icon-remove icon-white\"></i>???</button>";
         }
@@ -208,7 +234,7 @@
             var username = jqInputs[0].value
             var first_name = jqInputs[1].value
             var last_name = jqInputs[2].value
-            var group = jqSelect[0].value;
+            var groups = jqSelect[0].value;
 
 
             $.ajax({
@@ -219,7 +245,7 @@
                     username:username,
                     first_name:first_name,
                     last_name:last_name,
-                    group:group
+                    groups:groups
                 },
                 success: function(data) {
                     oTable.fnDraw();
@@ -238,11 +264,12 @@
             if ( nEditing !== null && nEditing != nRow ) {
                 /* A different row is being edited - the edit should be cancelled and this row edited */
                 restoreRow( oTable, nEditing );
-                editRow( sTable, nRow );
+                editRow( oTable, nRow );
                 nEditing = nRow;
             }
             else if ( nEditing == nRow && $(this).attr("edittype") == "save" ) {
                 /* This row is being edited and should be saved */
+
                 saveRow( oTable, nEditing );
                 nEditing = null;
             }
@@ -257,6 +284,7 @@
     "bFilter" : false,
     "bProcessing" : true,
     "bServerSide" : true,
+     "bPaginate" : false,
     "bAutoWidth" : false,
     "sAjaxSource" : "../json/users",
     "aaSorting": [[ 0, "desc" ]],

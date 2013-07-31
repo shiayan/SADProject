@@ -11,7 +11,7 @@
                 "{{ user.first_name }}",
                 "{{ user.last_name }}",
 "<span class=\"{{user.groups.all.0|user_group_span}}\">{{user.groups.all.0|user_group_label}}</span> <input id=\"group_pk\" type=\"hidden\" value=\"{{user.groups.all.0.pk}}\" />",
-{%if not user.is_superuser%} 	"<button   role=\"user_edit\" edittype=\"edit\"   class=\"btn btn-primary\"><i class=\"icon-pencil icon-white\"></i>ویرایش</button>  <button order=\"{{user.pk}}\" role=\"user_delete\" class=\"btn btn-danger\"><i class=\"icon-remove icon-white\"></i>حذف</button>" {% else %} ""
+{%if not user.is_superuser%} 	"<button   role=\"user_edit\" edittype=\"edit\"   class=\"btn btn-primary\"><i class=\"icon-pencil icon-white\"></i>ویرایش</button>  <button user=\"{{user.pk}}\" role=\"user_delete\" class=\"btn btn-danger\"><i class=\"icon-remove icon-white\"></i>حذف</button>" {% else %} ""
 {%endif%}
 				]
 				{% if not forloop.last %}
