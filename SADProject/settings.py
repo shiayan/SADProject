@@ -105,7 +105,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-AUTHENTICATION_BACKENDS = ('SADProject.myUser.backend.MyBackend',)
+#AUTHENTICATION_BACKENDS = ('SADProject.myUser.backend.MyBackend',)
 ROOT_URLCONF = 'SADProject.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.

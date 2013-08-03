@@ -7,9 +7,8 @@
 				{% for good in objects %}
 				[
 				"{{ good.pk }}",
-				"{{good.submitDate}}",
+                "{{good.submitDate}}",
 				"{{ good.category.name }} <input id=\"cat_pk\" type=\"hidden\" value=\"{{good.category.pk}}\" />",
-				"<span class=\"{{good.status|good_status_span}}\">{{good.status|good_status}}</span>",
 				"{{good.user}}"
 				]
 				{% if not forloop.last %}

@@ -83,7 +83,6 @@
                                 <thead>
                                 <tr>
                                     <th>شماره</th>
-									<th class="hidden-phone">نام کالا</th>
 									<th class="hidden-phone">تاریخ</th>
 									<th class="hidden-phone">دسته</th>
                                     <th class="hidden-phone">وضعیت</th>
@@ -181,7 +180,7 @@
                 var $cat = $('#cat');
                 if ($cat.val() != "")
                 {
-                    aoData.push({
+					aoData.push({
                         "name": "status",
                         "value": $cat.val()
                     });

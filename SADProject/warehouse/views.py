@@ -4,6 +4,7 @@ from models import Category
 
 from SADProject.orders.models import OrderItem
 from SADProject.orders.models import Order
+from django.contrib.auth.models import User
 from models import Good
 
 from django.http import HttpResponse
@@ -12,178 +13,48 @@ import datetime
 import json
 from django_jalali.db.models import jDateField
 from django.shortcuts import render_to_response
+from SADProject.utils.view_utils import render_to_response_wrapper, jsonListGenerator
 
-def render_to_response_wrapper(request,template):
-
-    c = {}
-    c.update(csrf(request))
-    return render_to_response(template,c);
-
-def jsonListGenerator(request,columns,data,template,my_dict = {}):
-    filters = ['__gte','__lte','']
-    args = {}
-    for column in columns:
-        for fltr in filters:
-            if column + fltr in request.GET:
-                args.update({column + fltr : request.GET[column+fltr]})
-
-    data = data.filter(**args)
-
-    iTotalRecords = data.count()
-    iTotalDisplayRecords = data.count()
-
-    if 'iSortCol_0' in request.GET:
-        order_str = columns[int(request.GET['iSortCol_0'])]
-        if request.GET['sSortDir_0'] == 'desc':
-            order_str =  '-' + order_str
-
-        order_arg = []
-        order_arg.append(order_str)
-        data = data.order_by(*order_arg)
-
-    if 'iDisplayStart' in request.GET:
-        iDisplayStart = int(request.GET['iDisplayStart'])
-        iDisplayLength =  int(request.GET['iDisplayLength'])
-    else:
-        iDisplayStart = 0
-        iDisplayLength  = iTotalRecords
-
-    iDisplayEnd = min(iDisplayLength + iDisplayStart ,data.count() )
-    if 'sEcho' in request.GET:
-        sEcho = int(request.GET['sEcho'])
-    else:
-        sEcho = 1
-
-    if iDisplayLength > 0:
-        data = data[iDisplayStart:iDisplayEnd]
-
-    my_dict.update({"objects" : data,'iTotalRecords' : iTotalRecords , 'iTotalDisplayRecords' : iTotalDisplayRecords,'sEcho' : sEcho})
-    return render_to_response(template,my_dict,mimetype='application/json')
-
-def changeQuerySet(request,columns,queryset):
-    args = {}
-    data = request.POST
-    pk = int(data['pk'])
-    for column in columns:
-        if column in data:
-            args.update({column:data[column]})
-
-    queryset.filter(pk = pk).update(**args)
-    return HttpResponse("Changed");
-
-def myOrdersJson(request):
-    columns = ['pk','submitDate','status']
-    data = Order.objects.filter(user = 1)
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/myorders.json")
-
-def allOrdersJson(request):
-    columns = ['pk','submitDate','status']
-    data = Order.objects
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/allorders.json")
-
-	
-	
 def allGoodsJson(request):
-    columns = ['pk','submitDate','name','status','user']
+    columns = ['pk','submitDate','status','user']
     data = Good.objects
     return jsonListGenerator(request = request, columns = columns, data = data, template = "json/allgoods.json")
+	
+def unlabeledGoodsJson(request):
+    columns = ['pk','submitDate','status','user']
+    data = Good.objects
+    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/unlabeledgoods.json")
 
-def buyOrdersJson(request):
-    columns = ['pk','submitDate']
-    data = Order.objects.filter(orderitem__status ='P',status='A').distinct()
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/acceptedorders.json")
 
-def acceptedOrdersJson(request):
-    columns = ['pk','submitDate']
-    data = Order.objects.filter(orderitem__status ='N',status='A').distinct()
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/acceptedorders.json")
-
-def viewOrderJson(request,edit=False,show_status=True,accepted=False):
-    columns = ['pk','category__name','name','description','quantity','status','order']
-
-    data = OrderItem.objects.all()
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/orderitem.json",my_dict={"edit":edit,"show_status":show_status,"accepted":accepted})
 
 def addGood(request):
-    CATinst=Category(name="jn")
-    goodinst=Good(user=100 , category=int(request.POST['CAT']))
-    goodinst.save()
-					
+    today = jDateField();
+    today = today.to_python(datetime.datetime.now())
+    CATinst=Category.objects.filter(pk=request.POST['CAT'])[0]
+    OrderInst=Order.objects.filter(pk=request.POST['NO'])[0]
+    OrderItemInst=OrderItem.objects.filter(pk=request.POST['NOI'])[0]
+    OrderItemInst.status='I'
+    OrderItemInst.save()
+    OrderItemInst2=OrderItem.objects.filter(order=OrderInst).exclude(status='I')
+    if not OrderItemInst2:
+		OrderInst.status='D'
+    OrderInst.save()
+    goodinst = Good(submitDate=today,category=CATinst,orderitem=OrderItemInst)
+    goodinst.save()				
+    
     c = {'rlink' : '../../allgoods/' , 'success' : " کالای شما ....."}
     return render_to_response("success.html",c);
 
-def addOrder(request):
-    c = request.POST
-    tableData = json.loads( c['tableData']);
-
-    today = jDateField();
-    today = today.to_python(datetime.datetime.now())
-
-    order = Order(user=1,submitDate=today)
-    order.save()
-    #print tableData
-    for order_item in tableData:
-         #print order_item[2]
-         OrderItem(order=order,
-                               name=order_item[0],
-                               category=Category.objects.filter(pk=order_item[4])[0],
-                               quantity=int(order_item[2]),
-                               description = order_item[5],
-                               status=OrderItem.ORDER_ITEM_STATUS_CHOICES[0][0]
-         ).save()
-    c = {'rlink' : '../myorders/' , 'success' : "سفارش شما با موفقیت ثبت شد تا لحظاتی دیگر به فهرست سفارشاتتان خواهید رفت"}
-    return render_to_response("success.html",c);
 
 def deleteFromQuerySet(request,queryset):
     pk = int(request.POST['pk'])
     queryset.filter(pk = pk).delete();
     return HttpResponse("Deleted");
 
-def changeOrderItem(request):
-    data = request.POST
-    columns = ["name","description","quantity","category","status"]
-    return changeQuerySet(request,columns,OrderItem.objects)
-
-def acceptOrder(request):
-    columns = ["status"]
-    return changeQuerySet(request,columns,Order.objects);
-
-def deleteOrderItem(request):
-    return deleteFromQuerySet(request,OrderItem.objects);
-
-
-
-def deleteOrder(request):
-    return deleteFromQuerySet(request,Order.objects)
-
-def unviewedOrdersJson(request):
-    columns = ['pk','user','submitDate']
-    data = Order.objects.filter(status = 'N')
-    return jsonListGenerator(request = request, columns = columns, data = data, template = "json/unviewedorders.json")
-
-
-def unviewedOrdersView(request):
-    return render_to_response_wrapper(request,"unacceptedOrders.html")
-
-
-def myOrdersView(request):
-    return render_to_response_wrapper(request,"myOrders.html")
-
-def allOrdersView(request):
-    return render_to_response_wrapper(request,"adminAllOrders.html")
-
-def acceptedOrdersView(request):
-    return render_to_response_wrapper(request,"acceptedorders.html")
-
-def buyOrdersView(request):
-    return render_to_response_wrapper(request,"buyorders.html")
-
-def addOrderView(request):
-     return render_to_response_wrapper(request,"addorder.html")
-	 
 def addGoodView(request):
      return render_to_response_wrapper(request,"addgood.html")
 	 
 def allGoodsView(request):
     return render_to_response_wrapper(request,"allGoods.html")
-	
+def unlabeledGoodsView(request):
+    return render_to_response_wrapper(request,"unlabeledGoods.html")

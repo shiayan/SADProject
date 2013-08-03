@@ -8,7 +8,8 @@ admin.autodiscover()
 urlpatterns = patterns('',('^$','SADProject.views.showIndex'),
                        (r'^admin/', include(admin.site.urls)),
                        (r'^order/',include('SADProject.orders.urls')),
-                       (r'^accounts/',include('SADProject.myUser.urls'))
+                       (r'^accounts/',include('SADProject.myUser.urls')),
+					   (r'^warehouse/',include('SADProject.warehouse.urls'))
                        # Examples:
                        # url(r'^$', 'SADProject.views.home', name='home'),
                        # url(r'^SADProject/', include('SADProject.foo.urls')),
