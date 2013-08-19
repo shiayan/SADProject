@@ -1,0 +1,112 @@
+[
+    {
+        "links": [
+			{
+				"url": "/warehouse/mygoods/",
+				"perm": "warehouse.view_my_goods",
+				"title": "کالاهای من"
+			},
+            {
+                "url": "/warehouse/allgoods/",
+                "perm": "warehouse.view_all_goods",
+                "title": "لیست کالاها"
+            },
+            {
+                "url": "/warehouse/addgood/",
+                "perm": "warehouse.add_new_good",
+                "title": "ثبت کالای جدید"
+            },
+            {
+                "url": "/warehouse/delivery/",
+                "perm": "warehouse.view_all_goods",
+                "title": "ثبت تحویل کالا"
+            },
+            {
+                "url": "/warehouse/categories/",
+                "perm": "warehouse.change_categories",
+                "title": "دسته‌ها"
+            }
+        ],
+        "icon": "book",
+        "name": "warehouse",
+        "perm": "warehouse",
+        "title": "انبارداری"
+    },
+    {
+        "links": [
+            {
+                "url": "/order/myorders/",
+                "perm": "orders.view_my_orders",
+                "title": "سفارش‌های من"
+            },
+            {
+                "url": "/order/addorder/",
+                "perm": "orders.add_new_order",
+                "title": "ثبت سفارش"
+            },
+            {
+                "url": "/order/unviewedorders/",
+                "perm": "orders.view_unviewed_orders",
+                "title": "سفارش‌های بررسی نشده"
+            },
+            {
+                "url": "/order/allorders/",
+                "perm": "orders.view_all_orders",
+                "title": "کل سفارش‌ها"
+            },
+            {
+                "url": "/order/acceptedorders/",
+                "perm": "orders.view_accepted_orders",
+                "title": "سفارش‌های تایید شده"
+            },
+            {
+                "url": "/order/buyorders/",
+                "perm": "orders.view_buy_orders",
+                "title": "سفارش‌های غیر موجود"
+            }
+        ],
+        "icon": "shopping-cart",
+        "name": "order",
+        "perm": "orders",
+        "title": "سفارش‌ها"
+    },
+	 {
+        "links": [
+            {
+                "url": "/damaged/alldamaged/",
+                "perm": "damaged.view_all_damaged_goods",
+                "title": "لیست کالاهای خراب"
+            },
+			{
+                "url": "/damaged/adddamaged/",
+                "perm": "damaged.add_damaged_good",
+                "title": "ثبت کالای خراب"
+            },
+			{
+                "url": "/damaged/deliverdamaged/",
+                "perm": "damaged.register_damaged_good_delivery",
+                "title": "تحویل کالای تعمیر شده"
+            }
+			
+        ],
+        "icon": "ambulance",
+        "name": "damaged",
+        "perm": "damaged",
+        "title": "کالاهای خراب"
+    },
+    {
+        "links": [
+            {
+                "url": "/accounts/users/",
+                "perm": "auth.change_user",
+                "title": "مدیریت کاربران"
+            }
+        ],
+        "icon": "user",
+        "name": "accounts",
+        "perm": "auth",
+        "title": "کاربران"
+    }
+   
+
+]
