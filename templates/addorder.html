@@ -53,17 +53,10 @@
 
                             <div class="widget-body form">
                                 <div class="form-horizontal">
-                                    <div class="control-group">
-                                        <label class="control-label">نام</label>
-                                        <div class="controls">
-                                            <input type="text" id="txtName"  class="input-mini"  />
-
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
+                                   <div class="control-group">
                                         <label class="control-label">دسته</label>
                                         <div class="controls">
-                                            <select id="optCat" class="span6">{% good_cats %}</select>
+                                            <select id="optCat" data-placeholder="بدون دسته" class="chosen-with-diselect  span6"><option value=""></option>{% good_cats %}</select>
 
                                         </div>
                                     </div>
@@ -94,7 +87,6 @@
                                 <table class="table table-striped table-bordered" id="order_items">
                                     <thead>
                                     <tr>
-                                        <th class="hidden-phone">اسم</th>
                                         <th class="hidden-phone">دسته</th>
                                         <th class="hidden-phone">مقدار</th>
                                         <th class="hidden-phone">توضیح</th>
@@ -110,19 +102,28 @@
                                     </tbody>
                                 </table>
                                 <div class="form-horizontal">
+                                    <form action="../do/addorder/" id="frmFinalPost" method="post">
+                                        {% csrf_token %}
+                                    {% if request.user.is_superuser %}
+                                        <br/>
+                                    <div class="control-group">
 
+
+                                            <input type="checkbox" class="checkboxes" id="isforall" name="isforall" > سفارش اموال عمومی</input>
+
+                                    </div>
+                                    {% endif %}
                                     <div class="form-actions">
 
                                         <button id="btnSubmit" type="submit" class="btn btn-success">ثبت</button>
 
                                     </div>
-
+                                        <input type="hidden" name="tableData" id="tableData" />
+                                    </form>
                                 </div>
 
-                                <form action="../do/addorder/" id="frmFinalPost" method="post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="tableData" id="tableData" />
-                                </form>
+
+
                             </div>
                         </div>
                     </div>
@@ -139,15 +140,21 @@
 {% endblock %}
 
 {% block scripts %}
+    <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
     <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
     <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
     <script>
           $('#btnAddItem').click(
               function(){
+                  category =  $('#optCat option:selected').text();
+                  if (category == '') {
+                      category = "بدون دسته"
+                  }
                   $("#order_items").dataTable().fnAddData(
                           [
-                            $("#txtName").val(),
-                              $('#optCat option:selected').text(),
+
+                              category,
                                  $("#txtQuantity").val(),
                                 "<textarea disabled >" +  $("#txtDscp").val() + "</textarea>",
                               $("#optCat").val(),
@@ -171,8 +178,8 @@
               "bInfo" : false,
              "bAutoWidth": false,
               "aoColumnDefs": [
-                  { "bVisible": false, "aTargets": [4 ] },
-                  { "bVisible": false, "aTargets": [5 ] }
+                  { "bVisible": false, "aTargets": [3 ] },
+                  { "bVisible": false, "aTargets": [4 ] }
               ] });
           $('#order_items button').live('click', function (e) {
               e.preventDefault();

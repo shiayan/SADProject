@@ -1,0 +1,26 @@
+﻿{% load tags %}
+{
+"sEcho" : {{sEcho}},
+"iTotalRecords" : {{iTotalRecords}},
+"iTotalDisplayRecords" : {{iTotalDisplayRecords}},
+"aaData": [
+				{% for damaged in objects %}
+				[
+				"{{ damaged.good.pk }}",
+                "{{damaged.good.user}}", 
+                 "{{ damaged.good.category.name }} ",
+				"<a {% if damaged.status == 'W' or damaged.status == 'A' %} role=\"show_address\" {% endif %} address=\"{{damaged.address}}\" class=\"{{damaged.status_span}}\">{{damaged.status_string}}</span>" ,
+				"<textarea rows=\"2\" readonly>{{damaged.description}} </textarea>",
+"{% ifnotequal damaged.status 'F' %} <button class=\"btn  btn-danger\"  role=\"delete_damaged\" damaged=\"{{damaged.pk}}\" >ثبت مرجوعی</button>  {% endifnotequal %}{%  ifnotequal damaged.status 'D' %} <button class=\"btn  green-stripe\"  role=\"register_damaged\" damaged=\"{{damaged.pk}}\" >ثبت خرابی</button> {%ifnotequal damaged.status 'F'%} <button class=\"btn  btn-success\"  role=\"register_return\" damaged=\"{{damaged.pk}}\" >ثبت تعمیر شدن</button> {%endifnotequal%} {% else %} <button class=\"btn  btn-primary\"  role=\"register_workshop\" damaged=\"{{damaged.pk}}\" >ارسال به تعمیرگاه</button> <button class=\"btn  btn-warning\"  role=\"register_agent\" damaged=\"{{damaged.pk}}\" >ارسال به نمایندگی</button>{% endifnotequal %} "
+
+				]
+				{% if not forloop.last %}
+				,
+				{% endif %}
+                {% endfor %}
+
+			] 
+
+
+
+}

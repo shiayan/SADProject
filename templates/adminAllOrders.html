@@ -1,5 +1,6 @@
 ﻿{% extends "master.html" %}
 {% load staticfiles %}
+{% load tags %}
 {% block title %}
 تمام سفارش‌ها
 {% endblock %}
@@ -40,8 +41,19 @@
                         </div>
 
                         <div class="widget-body">
-
+                            <iframe style="display: none;" name="download_report" id="download_report" ></iframe>
+                            <form id="frmReport" target="download_report" action="../../report/orders" method="GET" >
                             <table>
+                                <tr>
+                                    <td>شماره</td>
+                                    <td> : </td>
+                                    <td><input name="pk" id="pk" size="4" type="text"> </td>
+                                </tr>
+                                <tr>
+                                    <td>کاربر</td>
+                                    <td> : </td>
+                                    <td><select name="user" data-placeholder="همه"  id="user"><option value=""></option>{% user_list %}</select> </td>
+                                </tr>
                                 <tr>
                                     <td> تاریخ شروع </td>
                                     <td> : </td>
@@ -60,7 +72,7 @@
                                     <td> وضعیت </td>
                                     <td> : </td>
                                     <td>
-                                        <select class="span7 " id="cat" data-placeholder="Choose a Category" tabindex="1">
+                                        <select class="span7 " id="status" name="status"  data-placeholder="Choose a Category" tabindex="1">
 
                                             <option value="" selected="selected">همه</option>
                                             <option value="N">بررسی نشده</option>
@@ -71,9 +83,19 @@
                                 </tr>
                             </table>
 
-                            <button id="show" class="btn btn-inverse">
-                                <i class="icon-refresh icon-white"></i>نمایش
-                            </button>
+                                <input type="hidden" name="iSortCol_0" id="iSortCol_0"/>
+                                <input type="hidden" name="sSortDir_0" id="sSortDir_0" />
+                                <button  type="button"  id="show" class="btn btn-inverse">
+                                    <i class="icon-refresh icon-white"></i>نمایش
+                                </button>
+                                <button id="report" class="btn btn-report">
+                                    <i class="icon-bar-chart"></i>گزارش
+                                </button>
+
+
+
+
+                            </form>
 
                         </div>
 
@@ -112,7 +134,7 @@
                                     <thead>
                                     <tr>
                                         <th>شماره</th>
-                                        <th class="hidden-phone">نام</th>
+
                                         <th class="hidden-phone">دسته</th>
                                         <th class="hidden-phone">مقدار</th>
                                         <th class="hidden-phone">توضیح</th>
@@ -145,6 +167,9 @@
     <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
     <script type="text/javascript" src="{% static "assets/bootstrap-datepicker/js/jquery.ui.datepicker-cc.all.min.js" %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap-datepicker/styles/jquery.ui.datepicker1.8-all.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
+    <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
+
 
     <script>
         $(function() {
@@ -162,8 +187,16 @@
         $("#show").click(function (){
 
             oTable.fnDraw();
-        })
-        // begin first table
+        });
+        $('#user').chosen({allow_single_deselect: true});
+
+        $('#report').click(function(){
+
+            $('#iSortCol_0').val( oTable.fnSettings().aaSorting[0][0]);
+            $('#sSortDir_0').val( oTable.fnSettings().aaSorting[0][1]);
+            $('#frmReport').submit();
+        });
+
         $('button[role|="order_modal"]').live("click", function() {
             //alert($(this).attr("order"));
 
@@ -183,7 +216,7 @@
                     "bPaginate" : false,
                     "bDestroy" : false,
                     "bServerSide" : true,
-                    "sAjaxSource" : "../json/orderitem",
+                    "sAjaxSource" : "../json/allorderitem",
                     "fnServerParams" : function(aoData) {
                         aoData.push({
                             "name" : "order",
@@ -235,12 +268,28 @@
                     "name": "submitDate__lte",
                     "value": $endDate.val()
                 });
-                var $cat = $('#cat');
-                if ($cat.val() != "")
+                var $status = $('#status');
+                if ($status.val() != "")
                 {
                     aoData.push({
                         "name": "status",
-                        "value": $cat.val()
+                        "value": $status.val()
+                    });
+                }
+                var $pk = $('#pk');
+                if ($pk.val() != "")
+                {
+                    aoData.push({
+                        "name": "pk",
+                        "value": $pk.val()
+                    });
+                }
+                var $user = $('#user');
+                if ($user.val() != "")
+                {
+                    aoData.push({
+                        "name": "user",
+                        "value": $user.val()
                     });
                 }
             }

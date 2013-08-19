@@ -1,0 +1,22 @@
+{% load tags %}
+{
+"sEcho" : {{sEcho}},
+"iTotalRecords" : {{iTotalRecords}},
+"iTotalDisplayRecords" : {{iTotalDisplayRecords}},	
+"aaData": [
+				{% for category in objects %}
+				[
+
+                "{{ category.name }}",
+"<button   role=\"category_edit\" category=\"{{category.pk}}\" edittype=\"edit\"   class=\"btn btn-primary\"><i class=\"icon-pencil icon-white\"></i>ویرایش</button>  <button category=\"{{category.pk}}\" role=\"category_delete\" {% if forloop.last %} {% if forloop.first %}  disabled {% endif %} {% endif %}  class=\"btn btn-danger\"><i class=\"icon-remove icon-white\"></i>حذف</button>"
+				]
+				{% if not forloop.last %}
+				,
+				{% endif %}
+                {% endfor %}
+
+			] 
+
+
+
+}

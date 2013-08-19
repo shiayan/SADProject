@@ -1,5 +1,6 @@
 # Django settings for SADProject project.
 import os
+from django.conf.global_settings import EMAIL_PORT
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -23,7 +24,7 @@ DATABASES = {
     }
 }
 
-TEMPLATE_CONTEXT_PROCESSORS = ('django.contrib.auth.context_processors.auth','django.core.context_processors.request', 'django.core.context_processors.debug', 'django.core.context_processors.i18n', 'django.core.context_processors.media', 'django.core.context_processors.static', 'django.core.context_processors.tz', 'django.contrib.messages.context_processors.messages')
+#TEMPLATE_CONTEXT_PROCESSORS = ('django.contrib.auth.context_processors.auth','django.core.context_processors.request', 'django.core.context_processors.debug', 'django.core.context_processors.i18n', 'django.core.context_processors.media', 'django.core.context_processors.static', 'django.core.context_processors.tz', 'django.contrib.messages.context_processors.messages')
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -54,12 +55,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(BASE_DIR , '../uploads')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/uploads/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -73,6 +74,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (os.path.join(BASE_DIR ,"../templates"),
+                    os.path.join(BASE_DIR ,MEDIA_ROOT),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -105,7 +107,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-#AUTHENTICATION_BACKENDS = ('SADProject.myUser.backend.MyBackend',)
+AUTHENTICATION_BACKENDS = ('SADProject.myUser.backend.MyBackend',)
 ROOT_URLCONF = 'SADProject.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -128,14 +130,22 @@ INSTALLED_APPS = (
     'django_jalali',
     'SADProject.orders',
     'SADProject.warehouse',
+    'SADProject.damaged',
     'SADProject.myUser',
     'SADProject.utils',
+    'SADProject.report',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
 
+EMAIL_HOST = 'mailtrap.io'
+EMAIL_HOST_USER = 'test-96fd579863397122'
+EMAIL_HOST_PASSWORD = '59a1e21c3b6dedce'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = False
+DEFAULT_CHARSET = 'utf-8'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

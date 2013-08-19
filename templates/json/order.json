@@ -7,7 +7,7 @@
 				{% for order in objects %}
 				[
 				"{{ order.pk }}",{% if show_user %}
-                 "ali",{% endif %}
+                 "{{ order.user.username }}",{% endif %}
                 "{{ order.submitDate }}",{% if show_status %}
 
 				"<span class=\"{{order.status|order_status_span}}\">{{order.status|order_status}}</span>",{% endif %}

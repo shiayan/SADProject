@@ -7,16 +7,16 @@
 				{% for order_item in objects %}
 				[
 				"{{ order_item.pk }}",
-                "{{ order_item.name }}",
-				"{{ order_item.category.name }} <input id=\"cat_pk\" type=\"hidden\" value=\"{{order_item.category.pk}}\" />",
+               {% ifnotequal order_item.category none %} "{{ order_item.category.name }} <input id=\"cat_pk\" type=\"hidden\" value=\"{{order_item.category.pk}}\" />"  {% else %} {% if accepted %} "<select  role=\"cat_select\" data-placeholder=\"بدون دسته\"  style=\"width:150px\" ><option value=\"\"></option>{% good_cats True %}</select>"  {% else %} "بدون دسته <input id=\"cat_pk\" type=\"hidden\" value=\"{{order_item.category.pk}}\" />" {% endif %} {% endifnotequal %} ,
                 "{{ order_item.quantity }}",
                  "<textarea disabled>{{ order_item.description }}</textarea>"{%if show_status %},
 				"<span class=\"{{order_item.status|order_item_status_span}}\">{{order_item.status|order_item_status}}</span>"{% endif %}{% if edit %} ,
 				
-				 "<button  order=\"{{order_item.pk}}\" role=\"order_item_edit\" edittype=\"edit\"   class=\"btn mini green-stripe\">ویرایش</button> <button class=\"btn btn-danger\" type=\"submit\" role=\"order_item_delete\" order=\"{{order_item.pk}}\" ><i class=\"icon-remove icon-white\"></i>حذف</button>"
+				 "<button  order=\"{{order_item.pk}}\" role=\"order_item_edit\" edittype=\"edit\"   class=\"btn btn-info\"><i class=\"icon-pencil icon-white\"></i> ویرایش</button> <button class=\"btn btn-danger\" type=\"submit\" role=\"order_item_delete\" order=\"{{order_item.pk}}\" ><i class=\"icon-remove icon-white\"></i>حذف</button>"
 
                 {% endif %}{% if accepted %},
-				 "<button  pk=\"{{order_item.pk}}\" role=\"order_item_instock\" edittype=\"edit\"   class=\"btn btn-success\">موجود در انبار</button> <button class=\"btn btn-info\" type=\"submit\" role=\"order_item_tobuy\" pk=\"{{order_item.pk}}\" >خرید</button>"
+                {% ifnotequal order_item.category none %}"{% warehouse_count_free_cat order_item.category %}" {% else %} "0" {% endifnotequal%},
+{% ifequal order_item.category none %} "<button disabled pk=\"{{order_item.pk}}\" role=\"order_item_change_cat\"    class=\"btn btn-info\">تعیین دسته</button>"  {% else %}"<table class=\"none\" >  <tr> <td> تخصیص از انبار :</td> <td>  <input style=\"width: 30px;\" class=\"input-mini\"  disabled role=\"input_instock\" /> </td> </tr> <tr> <td>خرید :</td><td><div role=\"buy_amount\" ></div></td> </tr> <tr> <td> <button class=\"btn btn-info\" type=\"submit\" role=\"order_item_tobuy\" pk=\"{{order_item.pk}}\" >ثبت</button> </td> </tr> </table>" {% endifequal %}
                 {% endif %}
 				]
 				{% if not forloop.last %}

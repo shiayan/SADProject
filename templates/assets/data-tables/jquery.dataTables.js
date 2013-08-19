@@ -11431,7 +11431,7 @@
 	
 		/* Two buttons buttons */
 		"sPagePrevEnabled": "paginate_enabled_previous",
-		"sPagePrevDisabled": "paginate_disabled_previous",
+		"sPagePrev": "paginate_disabled_previous",
 		"sPageNextEnabled": "paginate_enabled_next",
 		"sPageNextDisabled": "paginate_disabled_next",
 		"sPageJUINext": "",

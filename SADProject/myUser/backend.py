@@ -1,17 +1,21 @@
 from imaplib import IMAP4
 
 from django.contrib.auth.models import User, check_password
+from django.contrib.auth.backends import ModelBackend
 import imaplib
-class MyBackend(object):
+class MyBackend(ModelBackend):
+    
 
 
     def authenticate(self, username=None, password=None):
-        M = IMAP4('imap.ce.sharif.edu')
-
+        #M = IMAP4('imap.ce.sharif.edu')
 
 
         try:
             user = User.objects.get(username = username)  #(settings.ADMIN_LOGIN == username)
+
+            if 1==1:
+                return user
             M.login(username,password)
 
 

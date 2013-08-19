@@ -26,6 +26,13 @@ $.ajaxSetup({
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
         }
     }
+});
+$( document ).ajaxStart(function() {
+   // alert('hoy');
+    $( "#loading" ).show();
+});
+$( document ).ajaxStop(function() {
+    $( "#loading" ).hide();
 });/**
  * Created with PyCharm.
  * User: Sina

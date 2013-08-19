@@ -1,0 +1,313 @@
+﻿{% extends "master.html" %}
+{% load staticfiles %}
+{% load tags %}
+{% block title %}
+کالاهای خراب
+{% endblock %}
+{% block content %}
+    <div id="main-content">
+        <!-- BEGIN PAGE CONTAINER-->
+        <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <h3 class="page-title" > کالاهای خراب</h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                        </li>
+                        <li>
+                            <a href="myOrders.html">کالاهای خراب</a><span class="divider-last">&nbsp;</span>
+                        </li>
+
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>کالاهای خراب</h4>
+                            <span class="tools"> </span>
+
+                        </div>
+
+                        <div class="widget-body">
+                            <iframe style="display: none;" name="download_report" id="download_report" ></iframe>
+                            <form id="frmReport" target="download_report" action="../../report/damaged" method="GET" >
+                            <table>
+                                <tr>
+                                    <td>شماره</td>
+                                    <td> : </td>
+                                    <td><input name="good__pk" id="pk" size="4" type="text"> </td>
+                                </tr>
+                                <tr>
+                                    <td>مالک فعلی</td>
+                                    <td> : </td>
+                                    <td><select name="good__user" data-placeholder="همه"  id="user"><option value=""></option>{% user_list %}</select> </td>
+                                </tr>
+                                <tr>
+                                    <td>دسته</td>
+                                    <td> : </td>
+                                    <td><select name="good__category" data-placeholder="همه"  id="category"><option value=""></option>{% good_cats %}</select> </td>
+                                </tr>
+                                <tr>
+                                    <td> وضعیت </td>
+                                    <td> : </td>
+                                    <td>
+                                        <select class="span7 " name="status" id="status" data-placeholder="Choose a Category" tabindex="1">
+
+                                            <option value="" selected="selected">همه</option>
+                                            <option value="D">خراب</option>
+											<option value="A">در نمایندگی</option>
+                                            <option value="W">در تعمیرگاه</option>
+											<option value="F">تعمیر شده</option>
+
+                                        </select></td>
+                                </tr>
+                            </table>
+                                <input type="hidden" name="iSortCol_0" id="iSortCol_0"/>
+                                <input type="hidden" name="sSortDir_0" id="sSortDir_0" />
+                                <button  type="button"  id="show" class="btn btn-inverse">
+                                    <i class="icon-refresh icon-white"></i>نمایش
+                                </button>
+                                <button id="report" class="btn btn-report">
+                                    <i class="icon-bar-chart"></i>گزارش
+                                </button>
+
+
+
+
+                                </form>
+
+                        </div>
+
+                        <div class="widget-body">
+                            <table class="table table-striped table-bordered" id="damaged_goods">
+                                <thead>
+                                <tr>
+                                    <th>شماره</th>
+                                    <th class="hidden-phone">کاربر</th>
+                                    <th class="hidden-phone">دسته</th>
+                                    <th class="hidden-phone">وضعیت</th>
+									<th class="hidden-phone">شرح خرابی</th>
+                                    <th class="hidden-phone"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <br/>
+                        <br/>
+                        <div id="getWorkshopAddress" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="getWorkshopAddress" aria-hidden="true">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h3 id="H1">آدرس تعمیرگاه را وارد کنید</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="text" id="workshop_address" class="span6" value="" />
+                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button data-dismiss="modal" id="register_workshop" class="btn btn-primary">ثبت</button>
+                                        </div>
+                        </div>
+						<div id="getAgentAddress" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="getAgentAddress" aria-hidden="true">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h3 id="myModalLabel2">آدرس نمایندگی را وارد کنید</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="text" id="agent_address" class="span6" value="" />
+                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button data-dismiss="modal" id="register_agent" class="btn btn-primary">ثبت</button>
+                                        </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- END ADVANCED TABLE widget-->
+
+                <!-- END PAGE CONTENT-->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+    </div>
+    <!-- END CONTAINER -->
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/csrf.ajax.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/gritter/css/jquery.gritter.css" %}" />
+    <script type="text/javascript" src="{% static "assets/gritter/js/jquery.gritter.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
+    <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
+    <script>
+        $('#user').chosen({allow_single_deselect: true});
+        $('#category').chosen({allow_single_deselect: true});
+        $("#show").click(function (){
+
+            oTable.fnDraw();
+        });
+
+        $('#report').click(function(){
+
+            $('#iSortCol_0').val( oTable.fnSettings().aaSorting[0][0]);
+            $('#sSortDir_0').val( oTable.fnSettings().aaSorting[0][1]);
+            $('#frmReport').submit();
+        });
+
+        var pk;
+        $('button[role|="delete_damaged"]').live('click',function(){
+
+            $.ajax({
+                type: "POST",
+                url: "../deletedamaged/",  // or just url: "/my-url/path/"
+                data: {'pk' : $(this).attr('damaged')},
+                success: function(data) {
+                    oTable.fnStandingRedraw();
+
+
+                }
+            });
+        });
+        $('a[role|="show_address"]').live('click',function(){
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'آدرس',
+                // (string | mandatory) the text inside the notification
+                text: $(this).attr('address'),
+                // (string | optional) the image to display on the left
+                image: '{% static "img/Address_web_icon.png" %}',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: true,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: '',
+                // (string | optional) the class name you want to apply to that specific message
+                class_name: 'my-sticky-class'
+            });
+        });
+        $('button[role|="register_workshop"]').live('click',function(){
+            pk = $(this).attr('damaged');
+            $('#getWorkshopAddress').modal('show');
+         });
+        $('button[role|="register_agent"]').live('click',function(){
+            pk = $(this).attr('damaged');
+            $('#getAgentAddress').modal('show');
+        });
+        $('button[role|="register_return"]').live('click',function(){
+            pk = $(this).attr('damaged');
+            changeDamaged({'pk' : pk , 'status' : 'F' }, '../returndamaged/');
+        });
+        $('button[role|="register_damaged"]').live('click',function(){
+            pk = $(this).attr('damaged');
+            changeDamaged({'pk' : pk , 'status' : 'D' });
+        });
+        $('#register_workshop').click(function(){
+
+           changeDamaged({'pk' : pk , 'status' : 'W', 'address' : $('#workshop_address').val() });
+        });
+        $('#register_agent').click(function(){
+
+            changeDamaged({'pk' : pk , 'status' : 'A', 'address' : $('#agent_address').val() });
+        });
+
+        function changeDamaged(data,url ){
+            url = url || '../changedamaged/' ;
+            $.ajax({
+                type: "POST",
+                url: url,  // or just url: "/my-url/path/"
+                data: data,
+                success: function(data) {
+                   oTable.fnStandingRedraw();
+
+
+                }
+            });
+      }
+       
+
+
+        var oTable = $('#damaged_goods').dataTable({
+            "bFilter" : false,
+            "bProcessing" : true,
+            "bAutoWidth" : false,
+            "bServerSide" : true,
+            "sAjaxSource" : "../json/alldamaged",
+            "aaSorting": [[ 0, "desc" ]],
+            "sPaginationType" : "bootstrap",
+            "oLanguage" : {
+                "sLengthMenu" : "_MENU_ رکورد در صفحه",
+                "oPaginate" : {
+                    "sPrevious" : "قبلی",
+                    "sNext" : "بعدی"
+                }
+            },
+            "aoColumnDefs" : [{
+                'bSortable' : false,
+                'aTargets' : [5]
+            }],
+            "fnServerParams" : function(aoData) {
+                
+                var $status = $('#status');
+                if ($status.val() != "")
+                {
+                    aoData.push({
+                        "name": "status",
+                        "value": $status.val()
+                    });
+                }
+                var $category = $('#category');
+                if ($category.val() != "")
+                {
+                    aoData.push({
+                        "name": "good__category",
+                        "value": $category.val()
+                    });
+                }
+                var $pk = $('#pk');
+                if ($pk.val() != "")
+                {
+                    aoData.push({
+                        "name": "good__pk",
+                        "value": $pk.val()
+                    });
+                }
+                var $user = $('#user');
+                if ($user.val() != "")
+                {
+                    aoData.push({
+                        "name": "good__user",
+                        "value": $user.val()
+                    });
+                }
+            }
+        });
+
+        jQuery('#damaged_goods_wrapper').find('.dataTables_filter input').addClass("input-medium");
+        // modify table search input
+        jQuery("#damaged_goods_wrapper").find('.dataTables_length select').addClass("input-mini");
+        // modify table per page dropdown
+    </script>
+
+{% endblock %}

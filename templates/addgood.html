@@ -48,76 +48,152 @@
 
 
 
+                        <form action="../do/addgood/" id="frmFinalPost" method="post">
 
                         <div class="widget-body">
-							<form action="../do/addgood/" id="frmFinalPost" method="post">
 
-                            <div class="widget-body form">
-                                <div class="form-horizontal">
-                                    <div class="control-group" >
-                                        <label class="control-label">دسته</label>
-                                        <div class="controls">
-                                            <select name="CAT" id="optCat" class="span6">{% good_cats %}</select>
+
+                                <div class="widget-body form">
+                                    <div class="form-horizontal">
+                                        <div class="control-group" >
+                                            <label class="control-label">دسته</label>
+                                            <div class="controls">
+                                                <select  name="category" id="category"  data-placeholder="بدون دسته" class="chosen-with-diselect"><option value=""></option>{% good_cats %}</select>
+
+                                            </div>
+                                        </div>
+                                        <div class="control-group" >
+                                            <label class="control-label">شماره سفارش</label>
+                                            <div class="controls">
+                                                <input name ="order" id="order"   class="input-mini"  />
+
+                                            </div>
+                                        </div>
+                                        <div class="control-group" >
+                                            <label class="control-label">شماره کالا در سفارش </label>
+                                            <div class="controls">
+                                                <select name="orderitem" id="orderitem"   class="input-mini"  > </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">نام کاربری مسئول خرید</label>
+
+                                            <div class="controls">
+                                                <div class="input-prepend">
+                                                    <span class="add-on"><i class="icon-user"></i></span><input  name="username" placeholder="نام کاربری" id="username" type="text"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="passwordDiv" class="control-group">
+                                            <label class="control-label">رمز عبور</label>
+                                            <div class="controls">
+                                                <div class="input-prepend">
+
+                                                    <span class="add-on"><i class="icon-key"></i></span><input name="password" id="password" type="password" placeholder="رمز عبور" /> </div><span class="help-inline" style="display: none;" id="wrongpass">رمز نادرست است</span>
+
+                                            </div>
 
                                         </div>
-                                    </div>
-									<div class="control-group" >
-                                        <label class="control-label">شماره سفارش</label>
-                                        <div class="controls">
-                                            <input  type="text" name ="NO" id="txtQuantity"   class="input-mini"  />
+
+                                      </div>
+                                    <div class="form-horizontal">
+
+                                        <div class="form-actions">
+
+                                            <button id="btnSubmit" type="submit" class="btn btn-success">ثبت</button>
 
                                         </div>
-                                    </div>
-									<div class="control-group" >
-                                        <label class="control-label">شماره کالا در سفارش </label>
-                                        <div class="controls">
-                                            <input type="text" name="NOI" id="ordnum"   class="input-mini"  />
-
-                                        </div>
-                                    </div>
-                                    
-									<div class="control-group" >
-                                        <label class="control-label">شرح</label>
-                                        <div class="controls">
-                                            <textarea name="DIS" class="span6 " id="txtDscp" rows="8"></textarea>
-                                        </div>
-                                    </div>
-                                                           
-
-
-                                </div>
-                                <br />
-                                <div class="form-horizontal">
-
-                                    <div class="form-actions">
-
-                                        <button id="btnSubmit" type="submit" class="btn btn-success">ثبت</button>
 
                                     </div>
+                                    {% csrf_token %}
 
-                                </div>
-								{% csrf_token %}
-                                </form>                                    
-									
-                            </div>
+
                         </div>
                     </div>
-                    <!-- END EXAMPLE TABLE widget-->
-                </div>
+                        </form>
+                    </div>
+
+
+                <!-- END EXAMPLE TABLE widget-->
             </div>
-
-            <!-- END ADVANCED TABLE widget-->
-
-            <!-- END PAGE CONTENT-->
         </div>
-        <!-- END PAGE CONTAINER-->
+
+        <!-- END ADVANCED TABLE widget-->
+
+        <!-- END PAGE CONTENT-->
     </div>
+    <!-- END PAGE CONTAINER-->
+</div>
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
-    <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/csrf.ajax.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
     <script>
+      updateOrderItem =   function (){
+
+            if($('#order').val().trim() != '')
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "../orderitemlist/",  // or just url: "/my-url/path/"
+                    data: {
+                        order:$('#order').val(),
+                        category:$('#category').val()
+                    },
+                    success: function(data) {
+                        $('#orderitem').html("");//clear old options
+                        data = eval(data);//get json array
+                        for (var i = 0; i < data.length; i++)//iterate over all options
+                        {
+
+
+                                $('#orderitem').append(
+                                        $('<option></option>').val(data[i]['pk']).html(data[i]['pk']).attr("title", "تعداد:" + data[i]['quantity'] + "\n" + data[i]['description']));
+
+                        }
+
+
+                    }
+                });
+            }
+        };
+        $('#category').change(updateOrderItem);
+        $('#order').change(updateOrderItem);
+
+      $('#btnSubmit').click(function(e){
+          e.preventDefault();
+
+          if($('#orderitem').val() == null){
+              return;
+          }
+          $.ajax({
+              type: "POST",
+              url: "/accounts/checkcredentials/",  // or just url: "/my-url/path/"
+              data: {
+                  username:$('#username').val(),
+                  password:$('#password').val()
+              },
+              success: function(data) {
+                  if (data == 'wrongpass')
+                  {
+                      $('#passwordDiv').addClass('error');
+                      $('#wrongpass').show();
+                  }
+                  else
+                  {
+                      $('#frmFinalPost').submit();
+                  }
+
+
+              }
+          });
+
+
+      });
 
     </script>
+
 {% endblock%}

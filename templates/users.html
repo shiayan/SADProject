@@ -50,21 +50,19 @@
 
                         <div class="widget-body">
                             <div class="widget-body form">
-                                <div id="message">
 
-                                </div>
 
                                 <form   method="post" class="form-horizontal">
                                     {% csrf_token %}
-                                    <div class="control-group">
+                                    <div id="usernameDiv" class="control-group">
                                         <label class="control-label">نام کاربری</label>
 
                                         <div class="controls">
-                                            <input id="username" type="text"    />
+                                            <input id="username" type="text"    /> <span class="help-inline" style="display: none;" id="wronguser"> این نام کاربری موجود است</span>
 
                                         </div>
                                     </div>
-                                    <div class="control-group">
+                                    <div  class="control-group">
                                         <label class="control-label">نام</label>
                                         <div class="controls">
                                             <input id="first_name" type="text"    />
@@ -89,7 +87,7 @@
                                     <div class="control-group">
 
                                         <div class="controls">
-                                            <button id="btnSubmit" type="submit" class="btn btn-success">ثبت</button>
+                                            <button id="btnAddItem" class="btn btn-warning"><i class="icon-plus icon-white"></i> اضافه</button>
 
                                         </div>
                                     </div>
@@ -144,7 +142,7 @@
     <script>
         var deleteRow = null;
         var nEditing = null;
-        $('#btnSubmit').click(function(e){
+        $('#btnAddItem').click(function(e){
             e.preventDefault();
             $.ajax({
              type: "POST",
@@ -158,16 +156,20 @@
             success: function(data){
                 if(data != 'error'){
 				oTable.fnDraw();
+                    $('#usernameDiv').removeClass('error');
+                    $('#wronguser').hide();
 				}
 				else{
-				$('#message').append('<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>خطا</strong> این نام کاربری موجود است</div>');
+                    $('#usernameDiv').addClass('error');
+                    $('#wronguser').show();
+			//	$('#message').append('<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>خطا</strong> این نام کاربری موجود است</div>');
 				}
             }
             });
         });
 
         $('button[role|="user_delete"]').live("click", function() {
-
+            deleteRow = $(this).parents('tr')[0];
             $.ajax({
                 type: "POST",
                 url: "../deleteuser/",  // or just url: "/my-url/path/"
@@ -179,7 +181,7 @@
                     oTable.fnDeleteRow(deleteRow);
                 }
             });
-            deleteRow = $(this).parents('tr')[0];
+
 
 
         });

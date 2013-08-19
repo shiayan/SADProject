@@ -1,16 +1,20 @@
-{% load tags %}
+﻿{% load tags %}
 {
 "sEcho" : {{sEcho}},
 "iTotalRecords" : {{iTotalRecords}},
-"iTotalDisplayRecords" : {{iTotalDisplayRecords}},	
+"iTotalDisplayRecords" : {{iTotalDisplayRecords}},
 "aaData": [
 				{% for good in objects %}
 				[
+                {% if checkbox %} "<input type=\"checkbox\" role=\"chkGood\" class=\"checkboxes\" id=\"chk_{{good.pk}}\" name=\"good_{{good.pk}}\" />  ", {% endif %}
 				"{{ good.pk }}",
-				"{{good.submitDate}}",
-				"{{ good.category.name }} <input id=\"cat_pk\" type=\"hidden\" value=\"{{good.category.pk}}\" />",
-				"<span class=\"{{good.status|good_status_span}}\">{{good.status|good_status}}</span>",
-				"{{good.user}}"
+                {% if show_user %}"{{good.user}}", {% endif %}
+                 "{{ good.category.name }} ",{%if show_description%}
+				 "<textarea disabled></textarea>",{% endif %}
+				 "{{good.submitDate}}"{% if show_status %},
+				"<span class=\"{{good.status|good_status_span}}\">{{good|good_status}}</span>" {% endif %}{% if  show_buttons %},
+{%  if show_receipt %} "<button class=\"btn mini green-stripe\" status=\"{{good.status}}\" role=\"show_receipt\" good=\"{{good.pk}}\" >رسید</button>"
+{% else %} "<button   role=\"good_edit\" good=\"{{good.pk}}\" good_cat=\"{{good.category.pk}}\" good_user=\"{{good.user.pk}}\" status=\"{{good.status}}\" edittype=\"edit\"   class=\"btn btn-primary\"><i class=\"icon-pencil icon-white\"></i>ویرایش</button>  <button good=\"{{good.pk}}\" role=\"good_delete\"  class=\"btn btn-danger\"><i class=\"icon-remove icon-white\"></i>حذف</button>"{%  endif %} {% endif %}
 				]
 				{% if not forloop.last %}
 				,

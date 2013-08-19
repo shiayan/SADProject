@@ -90,8 +90,7 @@
                                     <thead>
                                     <tr>
                                         <th>شماره</th>
-                                        <th class="hidden-phone">نام</th>
-                                        <th class="hidden-phone">دسته</th>
+                                        <th  class="hidden-phone">دسته</th>
                                         <th class="hidden-phone">مقدار</th>
                                         <th class="hidden-phone">توضیح</th>
                                         <th class="hidden-phone"></th>
@@ -117,10 +116,13 @@
 {%  block scripts %}
 
 <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/csrf.ajax.js" %}"></script>
 <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
 <script type="text/javascript" src="{% static "assets/bootstrap-datepicker/js/jquery.ui.datepicker-cc.all.min.js" %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap-datepicker/styles/jquery.ui.datepicker1.8-all.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
+
 
 <script>
     $(function() {
@@ -139,9 +141,18 @@
 //
     function restoreRow ( oTable, nRow )
     {
-         oTable.fnDraw();
-    }
+        var aData = oTable.fnGetData(nRow);
+        var jqTds = $('>td', nRow);
 
+        for ( var i=0, iLen=jqTds.length ; i<iLen ; i++ ) {
+            oTable.fnUpdate( aData[i], nRow, i, false );
+        }
+        var jButton = $('button',nRow)[0]
+        $(jButton).attr('edittype','edit')
+        $(jButton).html( editButton)
+    }
+var editButton = '<i class="icon-pencil icon-white"></i> ویرایش'
+var saveButton = '<i class="icon-save icon-white"></i> ذخیره'
     function editRow ( oTable, nRow,button )
     {
         var aData = oTable.fnGetData(nRow);
@@ -152,30 +163,37 @@
         var selected = jqInputs[0].value;
 
         jText[0].disabled = false;
-       // jqTds[0].innerHTML = '<input type="text" value="'+aData[0]+'">';
-        jqTds[1].innerHTML = '<input class="input-mini" type="text" value="'+aData[1]+'">'; //name
-        jqTds[2].innerHTML = "<select class=\"input-mini\"  " + '>{% good_cats %}</select>'; //cat
+
+
+        jqTds[1].innerHTML = "<select id=\"selectOPT\" data-placeholder=\"بدون دسته\"  style=\"width:150px\"   " + '><option value=""></option>{% good_cats %}</select>'; //cat
         $('select', nRow)[0].value = selected;
-        jqTds[3].innerHTML = '<input type="text" class="input-mini" value="'+aData[3]+'">'; //quantity
+
+        $("#selectOPT").chosen({
+            allow_single_deselect: true
 
 
-        $(button).attr("edittype" , "save");
-        $(button).html( "ذخیره");
-       // jqTds[4].innerHTML = "<textarea>" + description + "</textarea>"; //textArea
-       // jqTds[5].innerHTML =  "<a  order=\"" + aData[0]+ "\" role=\"order_item_edit\" edit_type=\"edit\"   class=\"btn mini green-stripe\">ویرایش</a> <button class=\"btn btn-danger\" type=\"submit\" ><i class=\"icon-remove icon-white\"></i>حذف</button>";
+
+
+        });
+        jqTds[2].innerHTML = '<input id=\"quantity\" type="text" class="input-mini" value="'+aData[2]+'">'; //quantity
+
+        var jButton = $('button',nRow)[0]
+        $(jButton).attr("edittype" , "save");
+        $(jButton).html(saveButton);
+
     }
 
     function saveRow ( oTable, nRow ,button)
     {
         var aData = oTable.fnGetData(nRow);
-        var jqInputs = $('input', nRow);
+        var jqQuantity = $('#quantity', nRow)[0];
         var jqSelect = $('select',nRow);
         var jText = $('textarea', nRow);
 
         var pk = aData[0];
-        var name = jqInputs[0].value;
-        var category = jqSelect[0].value;
-        var quantity = jqInputs[1].value;
+
+         var category = jqSelect[0].value;
+        var quantity = jqQuantity.value;
         var description = jText[0].value;
 
         $.ajax({
@@ -183,7 +201,6 @@
             url: "../changeorderitem/",  // or just url: "/my-url/path/"
             data: {
                 pk:pk,
-                name:name,
                 category:category,
                 quantity:quantity,
                 description:description
@@ -207,6 +224,10 @@
                },
             success: function(data) {
                 sTable.fnDraw();
+                if(data == 'order_changed'){
+                    oTable.fnDraw();
+                    $('#order_item').modal('hide')
+                }
             }
         });
     });

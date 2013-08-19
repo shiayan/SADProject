@@ -1,0 +1,459 @@
+﻿{% extends "master.html" %}
+{% load staticfiles %}
+{% load tags %}
+{% block title %}
+{{ delivery_title }}
+{% endblock %}
+{% block content %}
+    <div id="main-content">
+        <!-- BEGIN PAGE CONTAINER-->
+        <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <h3 class="page-title" >{{ delivery_title }}</h3>
+                    <ul class="breadcrumb">
+                        <li>
+                             <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                        </li>
+                        <li>
+                            <a href="">{{ delivery_title }}</a><span class="divider-last">&nbsp;</span>
+                        </li>
+
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+                    <div class="widget box blue" id="form_wizard_1">
+                        <div class="widget-title">
+                            <h4 ><i class="icon-reorder"></i>{{ delivery_title }}</h4>
+                            <span class="tools"> </span>
+
+                        </div>
+                        <div class="widget-body form">
+                            <div class="form-horizontal">
+                                <div class="form-wizard">
+                                    <div class="navbar steps">
+                                        <div class="navbar-inner">
+                                            <ul class="row-fluid">
+                                                <li class="span3">
+                                                    <a href="#tab1" data-toggle="tab" class="step active">
+                                                        <span class="number">1</span>
+                                                        <span class="desc"><i class="icon-ok"></i> انتخاب کاربر</span>
+                                                    </a>
+                                                </li>
+                                                <li class="span3">
+                                                    <a href="#tab2" data-toggle="tab" class="step">
+                                                        <span class="number">2</span>
+                                                        <span class="desc"><i class="icon-ok"></i> انتخاب کالا</span>
+                                                    </a>
+                                                </li>
+                                                <li class="span3">
+                                                    <a href="#tab3" data-toggle="tab" class="step">
+                                                        <span class="number">3</span>
+                                                        <span class="desc"><i class="icon-ok"></i> تایید نهایی</span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="bar" class="progress progress-striped">
+                                        <div class="bar"></div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab1">
+                                            <h4>کاربر مالک را انتخاب کنید</h4>
+                                            <div class="control-group">
+                                                <label class="control-label">کاربر</label>
+                                                <div class="controls">
+                                                   <select data-placeholder=""  id="user">
+
+											{% user_list %}
+                                           </select>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="tab2">
+                                            <h4>کالاهای موردنظر را انتخاب کنید</h4>
+                                            <table class="table table-striped table-bordered" id="goods_1">
+                                <thead>
+                                <tr>
+                                    <th><input type="checkbox" class="checkboxes" id="chkAll" /></th>
+									<th>شماره</th>
+									<th class="hidden-phone">دسته</th>
+								{% if show_description %}	<th>شرح خرابی</th> {% endif %}
+                                    <th class="hidden-phone">تاریخ</th>
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                </tbody>
+
+                            </table>
+
+                                        </div>
+                                        <div class="tab-pane" id="tab3">
+                                            <h4>برای تایید تحویل، کاربر مالک باید رمز عبود خود را وارد کند</h4>
+                                            <div class="control-group">
+                                                 <div class="accordion" id="accordion1">
+                              <div class="accordion-group">
+                                 <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" id="submitHeader" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
+                                 
+                                 
+                                    </a>
+                                 </div>
+                                 <div id="collapse_1" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                         <table class="table table-striped table-bordered" id="final_goods">
+                                                        <thead>
+                                                        <tr>
+
+                                                            <th>شماره</th>
+                                                            <th class="hidden-phone">دسته</th>
+															{% if show_description %}	<th>شرح خرابی</th> {% endif %}
+                                                            <th class="hidden-phone">تاریخ</th>
+
+
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+
+                                                        </tbody>
+
+                                         </table>
+                                    </div>
+                                 </div>
+                              </div>
+                                                
+                                                  
+                                                </div>
+                                                </div>
+                                            <form id="frmFinalDelivery" action="{{ final_delivery_address }}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="control-group">
+                                                <label class="control-label">نام کاربری مالک</label>
+
+													<div class="controls">
+                                                    <div class="input-prepend">
+                                                        <span class="add-on"><i class="icon-user"></i></span><input readonly name="username" id="username" type="text"  />
+                                                    </div>
+													</div>
+                                            </div>
+                                            <div id="passwordDiv" class="control-group">
+                                                <label class="control-label">رمز عبور</label>
+												<div class="controls">
+											<div class="input-prepend">
+                                                
+                                                        <span class="add-on"><i class="icon-key"></i></span><input name="password" id="password" type="password" placeholder="رمز عبور" /> </div><span class="help-inline" style="display: none;" id="wrongpass">رمز نادرست است</span>
+                                                  
+											</div>
+
+                                            </div>
+
+                                                <input type="hidden" name="keys" id="keys" />
+												{% if show_description %} <input type="hidden" id="descriptions" name="descriptions" /> {% endif%}
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-actions clearfix">
+                                        <a href="javascript:;" class="btn button-previous">
+                                            <i class="icon-angle-right"></i> برگشت
+                                        </a>
+                                        <a href="javascript:;" class="btn btn-primary blue button-next">
+                                            ادامه <i class="icon-angle-left"></i>
+                                        </a>
+                                        <button href="javascript:;"  id="btnSubmit" class="btn btn-success button-submit">
+                                           تایید <i class="icon-ok"></i>
+                                        </button>
+                                    </div>
+
+                            </div>
+                        </div>
+
+                      
+                </div>
+
+                <!-- END ADVANCED TABLE widget-->
+
+                <!-- END PAGE CONTENT-->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+    </div>
+    </div>
+    </div>
+
+    <!-- END CONTAINER -->
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static "assets/data-tables/jquery.dataTables.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/csrf.ajax.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/data-tables/DT_bootstrap.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
+    <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
+   <script src="{% static "assets/bootstrap-wizard/jquery.bootstrap.wizard.min.js" %}"></script>
+
+
+    <script>
+        const wizard = $('#form_wizard_1');
+        function showFinal() {
+            $('#username').val($('#user option:selected').html());
+			sTable.fnClearTable();
+			$('#btnSubmit').prop('disabled',true);
+            var data = oTable.$('input').serialize();
+
+			$('#submitHeader').html( '<i class=" icon-plus">  </i> ' + 'هیچ کالایی انتخاب نشده است');
+			if (data == '') {
+                return;
+            }
+			
+
+            data = data.split("&");
+            for(i = 0 ; i < data.length ; i++ ){
+                data[i] = data[i].replace("good_","")
+                data[i] = data[i].replace("=on","")
+            }
+			$('#submitHeader').html('<i class=" icon-plus">  </i> ' + data.length + ' کالا انتخاب شده است ');
+            
+			
+
+			$('#btnSubmit').prop('disabled',false);
+            $('#keys').val(JSON.stringify(data));
+
+                var rows =  oTable.fnGetNodes();
+            {% if show_description %}
+                var descs = [];
+                z = 0;
+            {% endif %}
+
+            for (i = rows.length - 1; i >= 0; i--) {
+                var row = rows[i];
+                var data = oTable.fnGetData(row);
+                if ($('.checkboxes',row).is(':checked')) {
+
+                    {% if show_description %}
+                        descs[z] = [ $('textarea',row).val()];
+                        z++;
+                    {% endif %}
+                    sTable.fnAddData([
+                        data[1],
+                        data[2],
+						{% if show_description %} '<textarea readonly>' + descs[z-1] + '</textarea>' , data[4] {% else %} data[3] {% endif %}
+                       
+                    ]);
+
+                }
+            }
+
+
+            {% if show_description %}
+               $('#descriptions').val(JSON.stringify(descs))
+            {% endif %}
+        }
+
+        wizard.bootstrapWizard({
+            'nextSelector': '.button-next',
+            'previousSelector': '.button-previous',
+            onTabClick: function (tab, navigation, index) {
+
+                return false;
+            },
+        onNext: function (tab, navigation, index) {
+                // set wizard title
+
+                var total = navigation.find('li').length;
+                var current = index + 1;
+                $('.step-title', wizard).text('Step ' + (index + 1) + ' of ' + total);
+                // set done steps
+                jQuery('li', wizard).removeClass("done");
+                var li_list = navigation.find('li');
+                for (var i = 0; i < index; i++) {
+                    jQuery(li_list[i]).addClass("done");
+                }
+
+                if (current == 1) {
+                    wizard.find('.button-previous').hide();
+                } else {
+                    wizard.find('.button-previous').show();
+                }
+
+                if (current >= total) {
+                    wizard.find('.button-next').hide();
+                    wizard.find('.button-submit').show();
+                } else {
+                    wizard.find('.button-next').show();
+                    wizard.find('.button-submit').hide();
+                }
+                App.scrollTo($('.page-title'));
+            },
+            onPrevious: function (tab, navigation, index) {
+                var total = navigation.find('li').length;
+                var current = index + 1;
+                // set wizard title
+                $('.step-title',wizard).text('Step ' + (index + 1) + ' of ' + total);
+                // set done steps
+                jQuery('li',wizard).removeClass("done");
+                var li_list = navigation.find('li');
+                for (var i = 0; i < index; i++) {
+                    jQuery(li_list[i]).addClass("done");
+                }
+
+                if (current == 1) {
+                    wizard.find('.button-previous').hide();
+                } else {
+                    wizard.find('.button-previous').show();
+                }
+
+                if (current >= total) {
+                    wizard.find('.button-next').hide();
+                    wizard.find('.button-submit').show();
+                } else {
+                    wizard.find('.button-next').show();
+                    wizard.find('.button-submit').hide();
+                }
+
+                App.scrollTo($('.page-title'));
+            },
+            onTabShow: function (tab, navigation, index) {
+
+                var total = navigation.find('li').length;
+                var current = index + 1;
+                var $percent = (current / total) * 100;
+                wizard.find('.bar').css({
+                    width: $percent + '%'
+                });
+                if(index == 2){
+                    showFinal();
+                }
+            }
+        });
+	
+	
+
+        $('#user').chosen();
+
+         $('#user').change(function (){
+
+			sTable.fnClearTable();
+            oTable.fnReloadAjax();
+
+
+        });
+		{% if show_description %}
+		$('input[role|="chkGood"]').live('change',function(){
+		row = $(this).parents('tr')[0];
+		textarea = $('textarea',row);
+		
+		$(textarea).attr('disabled',!$(this).is(':checked'))
+		
+		});
+		{% endif %}
+        $('#chkAll').click(function(e){
+
+
+            $('.checkboxes',oTable.fnGetNodes()).prop('checked', $(this).is(':checked'));
+            $.uniform.update();
+
+        });
+        $('#btnSubmit').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/accounts/checkcredentials/",  // or just url: "/my-url/path/"
+                data: {
+                    username:$('#username').val(),
+                    password:$('#password').val()
+                },
+                success: function(data) {
+                     if (data == 'wrongpass')
+                     {
+                         $('#passwordDiv').addClass('error');
+                         $('#wrongpass').show();
+                     }
+                    else
+                     {
+                         $('#frmFinalDelivery').submit();
+                     }
+
+
+                }
+            });
+
+
+        });
+
+
+        var global_user = -1;
+        var sTable= $('#final_goods').dataTable({
+            "bAutoWidth" : false,
+            "bFilter" : false,
+            "sPaginationType" : "bootstrap",
+            "oLanguage" : {
+                "sLengthMenu" : "_MENU_ رکورد در صفحه",
+                "oPaginate" : {
+                    "sPrevious" : "قبلی",
+                    "sNext" : "بعدی"
+                }
+            },
+            "aaSorting": [[ 0, "desc" ]]
+
+        });
+        var oTable = $('#goods_1').dataTable({
+            "bFilter" : false,
+            "sAjaxSource": '{{ table_json_address }}',
+            "bProcessing" : true,
+            "bAutoWidth" : false,
+            "aaSorting": [[ 1, "desc" ]],
+            "sPaginationType" : "bootstrap",
+            "oLanguage" : {
+                "sLengthMenu" : "_MENU_ رکورد در صفحه",
+                "oPaginate" : {
+                    "sPrevious" : "قبلی",
+                    "sNext" : "بعدی"
+                }
+            },
+            "aoColumnDefs" : [{
+                'bSortable' : false,
+                'aTargets' : [0]
+            }],
+            "fnServerParams" : function(aoData) {
+                aoData.push({
+                    "name" : "user",
+                    "value" :  $('#user').val()
+                });
+            },
+            fnDrawCallback : function(oSettings) {
+               // $.uniform.restore();
+                $.uniform.restore('input[type|="checkbox"]');
+                //$('input[type|="checkbox"]').uniform.restore().uniform();
+                $('input[type|="checkbox"]').uniform();
+            }
+            
+        });
+
+        
+        jQuery("#goods_1_wrapper").find('.dataTables_length select').addClass("input-mini");
+        // modify table per page dropdown
+    </script>
+
+{% endblock %}
