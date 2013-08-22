@@ -22,10 +22,13 @@ def addGroup(name, perms):
     if Group.objects.filter(name=name).count() == 0:
         group = Group(name=name)
         group.save()
-        for perm in perms:
-            permission = Permission.objects.get(codename=perm)
-            group.permissions.add(perm)
-        group.save()
+    else:
+        group = Group.objects.get(name=name)
+
+    for perm in perms:
+        permission = Permission.objects.get(codename=perm)
+        group.permissions.add(permission)
+    group.save()
 
 
 groups = [{"name": "A",
@@ -52,4 +55,9 @@ for user in User.objects.all():
     if user.is_superuser:
         user.groups.add ( Group.objects.get(name ='A'))
         user.save()
+    else:
+
+        if user.groups.all().count() ==0:
+            user.groups.add ( Group.objects.get(name ='U'))
+            user.save()
 

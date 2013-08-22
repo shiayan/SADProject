@@ -174,6 +174,9 @@
     <script type="text/javascript" src="{% static "assets/bootstrap-datepicker/js/jquery.ui.datepicker-cc.all.min.js" %}"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap-datepicker/styles/jquery.ui.datepicker1.8-all.css" %}" />
+    <script type="text/javascript" src="{% static "js/csrf.ajax.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
+    <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
   {%  if show_receipt %}
     <script type="text/javascript" src="{% static "assets/fileupload/fileuploader.js" %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static "assets/fileupload/fileuploader.css" %}" />
@@ -223,21 +226,12 @@
           });
       </script>
   {%  else %}
-      <script type="text/javascript" src="{% static "js/csrf.ajax.js" %}"></script>
-      <link rel="stylesheet" type="text/css" href="{% static "assets/chosen-bootstrap/chosen/chosen.css" %}" />
-      <script type="text/javascript" src="{% static "assets/chosen-bootstrap/chosen/chosen.jquery.min.js" %}"></script>
+
       <script>
            var deleteRow = null;
            var nEditing = null;
 
-           $('#user').chosen({allow_single_deselect: true});
-           $('#category').chosen({allow_single_deselect: true});
-           $('#report').click(function(){
 
-            $('#iSortCol_0').val( oTable.fnSettings().aaSorting[0][0]);
-            $('#sSortDir_0').val( oTable.fnSettings().aaSorting[0][1]);
-             $('#frmReport').submit();
-           });
            $('button[role|="good_delete"]').live("click", function() {
 
 
@@ -366,6 +360,14 @@
     </script>
 
     <script>
+        $('#user').chosen({allow_single_deselect: true});
+        $('#category').chosen({allow_single_deselect: true});
+        $('#report').click(function(){
+
+            $('#iSortCol_0').val( oTable.fnSettings().aaSorting[0][0]);
+            $('#sSortDir_0').val( oTable.fnSettings().aaSorting[0][1]);
+            $('#frmReport').submit();
+        });
 
         $('#show').click(function(){
             oTable.fnDraw();

@@ -182,7 +182,7 @@ def addCategory(request):
 @permission_required("warehouse.add_new_good")
 def addGood(request):
     buy_agent = MyBackend().authenticate(request.POST['username'], request.POST['password'])
-    if buy_agent == None or buy_agent.groups.all()[0].name != 'B' :
+    if buy_agent == None or (buy_agent.groups.all()[0].name != 'B' and not buy_agent.is_superuser) :
         return HttpResponse('borooo')
     today = jDateField()
     today = today.to_python(datetime.datetime.now())

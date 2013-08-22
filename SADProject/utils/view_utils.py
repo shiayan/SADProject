@@ -1,10 +1,12 @@
 ﻿# -*- coding: UTF-8 -*-
 from django.core.context_processors import csrf
 from django.http import HttpResponse
+
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-import json
-from django.utils import simplejson
+import json,os
+from SADProject.settings import BASE_DIR
+
 
 __author__ = 'Sina'
 
@@ -36,7 +38,9 @@ def render_to_response_wrapper(request,template,my_dict= {}):
 	
 	
 	]
-    apps_file = open('menu.json')
+
+
+    apps_file = open(os.path.join(BASE_DIR,'../menu.json'))
     apps = json.loads(apps_file.read())
     apps_file.close()
     my_dict.update(csrf(request))

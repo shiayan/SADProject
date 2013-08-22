@@ -1,6 +1,7 @@
 from django.template.loader import render_to_string
 from SADProject.damaged.models import Damaged
 from SADProject.orders.models import Order
+from SADProject.settings import BASE_DIR
 import jdatetime
 from datetime import datetime
 import os
@@ -51,7 +52,7 @@ def pdfGenerator(request,columns,data,template,my_dict = {},default_filters = {}
     my_dict.update({"objects" : data,'iTotalRecords' : iTotalRecords,'today' : jdatetime.datetime.now().strftime('%d-%m-%Y')})
 
     html = render_to_string(template,my_dict)
-    html_file = open(str(datetime.now().microsecond) + '.html','w')
+    html_file = open(os.path.join(BASE_DIR,'../' + str(datetime.now().microsecond) + '.html'),'w')
     html_file.write(html.encode('UTF-8'))
     html_file.flush()
     html_file.close()

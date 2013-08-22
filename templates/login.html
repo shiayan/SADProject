@@ -37,7 +37,7 @@ Template Name: login
   <div id="login">
     <!-- BEGIN LOGIN FORM -->
       {% if form.errors %}
-          <p class="error">Sorry, that's not a valid username or password</p>
+          <p class="error">نام کاربری و رمز عبور معتبر نیست</p>
       {% endif %}
     <form id="loginform" class="form-vertical no-padding no-margin" action="" method="post">
         {% csrf_token %}
