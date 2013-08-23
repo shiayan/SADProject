@@ -75,10 +75,10 @@ def uploadAjax(request):
 
         if success:
             goodObject = Good.objects.get(pk=int(good))
-            if goodObject.status != 'D':
+            if goodObject.status == 'U' or goodObject.status == 'L':
                 goodObject.status = 'L'
                 goodObject.save()
-                print 'hot'
+
             # let Ajax Upload know whether we saved it or not
         import json
 
