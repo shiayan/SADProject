@@ -27,7 +27,7 @@ urlpatterns = patterns('SADProject.orders.views', url('^myorders/$', 'myOrdersVi
                        (r'^json/acceptedorderitem/$',  permission_required("orders.view_accepted_orders")(lambda request: viewOrderJson(request,edit= False, show_status = False, accepted = True, filters = {'status': 'N'}))),
                        (r'^json/buyorders/$', permission_required("orders.view_buy_orders")(lambda request: ordersJson(request,show_user= True, show_status= False,
                                                              filters= {'orderitem__status': 'P', 'status': 'A'}))),
-                       (r'^json/buyorderitem/$',permission_required("orders.view_buy_orders")(lambda request:  viewOrderJson(request,edit= False, show_status= False, accepted = False))),
+                       (r'^json/buyorderitem/$',permission_required("orders.view_buy_orders")(lambda request:  viewOrderJson(request,edit= False, show_status= False, accepted = False, filters={'status' : 'P'}))),
                        ('^addorder/$', 'addOrderView'),
                        (r'^do/addorder/$', 'addOrder'),
                        (r'^unviewedorders/$', 'unviewedOrdersView'),
