@@ -18,7 +18,7 @@
             },
             {
                 "url": "/warehouse/delivery/",
-                "perm": "warehouse.view_all_goods",
+                "perm": "warehouse.register_delivery",
                 "title": "ثبت تحویل کالا"
             },
             {
