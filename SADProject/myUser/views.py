@@ -37,6 +37,7 @@ def changeUser(request):
     user.username = data['username']
     user.first_name = data['first_name']
     user.last_name = data['last_name']
+    user.email = user.username + '@ce.sharif.edu'
     user.groups.clear()
     user.groups.add(int(data['groups']))
     user.save()
